@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Documentation | Dexam angular bootstrap 4 Landing template</title>
+    <meta name="description" content="Documentation of Dexam Angular Bootstrap 4 Landing Template. Multi Demo and feature rich angular Landing template">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-light_blue.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color-text--blue-grey-50">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Documentation</span>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--indigo-900">
+            <header class="demo-drawer-header mdl-color--white-500">
+                <a href="" target="_blank">
+                    <img src="images/logo.png" class="doc-logo">
+                </a>
+            </header>
+            <nav class="demo-navigation mdl-navigation ">
+
+                <a class="mdl-navigation__link" href="#getting-started"><i class="mdl-color-text--blue-grey-400 material-icons" 
+            role="presentation">forward</i>Getting Started</a>
+
+
+                <a class="mdl-navigation__link" href="#theming"><i class="mdl-color-text--blue-grey-400 material-icons" 
+            role="presentation">format_color_fill</i>Theming Guide</a>
+
+                <a class="mdl-navigation__link" href="#classes"><i class="mdl-color-text--blue-grey-400 material-icons" 
+            role="presentation">code</i>Css Classes</a>
+                <a class="mdl-navigation__link" href="#dependencies"><i class="mdl-color-text--blue-grey-400 material-icons" 
+            role="presentation">local_offer</i>Dependencies</a>
+
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+
+                <div id="getting-started" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <h3>Getting Started</h3>
+                    <p>Make sure you have <code>Nodejs</code>, <code>NPM</code> and <code>@angular/cli</code> installed on your computer.</p>
+                    <p>Download node <a href="https://nodejs.org/en/download/" target="_blank">https://nodejs.org/en/download</a></p>
+                    <p>Open terminal and run <code>npm install -g @angular/cli</code></p>
+                    <p>Angular CLI Doc: <a href="https://cli.angular.io/" target="_blank">https://cli.angular.io</a></p>
+
+                    <h5>Serve and build</h5>
+                    <p>Use terminal and navigate to project root.</p>
+                    <p>Then run <code>npm install</code></p>
+
+                    <h5>Development server</h5>
+                    <p>Run <code>ng serve</code> for a dev server. Navigate to <a href="http://localhost:4200" target="_blank">http://localhost:4200</a>. The app will automatically reload if you change any of the source files.</p>
+
+                    <h5>Code Scaffolding</h5>
+                    <p>Run <code>ng generate component componentName</code> to generate a new component. You can also use <code>ng generate directive/pipe/service/class/module</code>.</p>
+
+                    <h5>Build</h5>
+                    <p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the dist/ directory. Use the <code>-prod</code> flag for a production build.</p>
+                    <h5>App Entry Point</h5>
+                    <p><code>main.ts</code> (Location: src) is the entry file. And <code>app.scss</code> (Location: "src/assets/styles/app.scss") is the entry file for Styles which is included in <code>angular.json</code> file.</p>
+                </div>
+                <div id="routings" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <h3>Route Configuration</h3>
+                    <p>There are two main <code>router-outlet</code>s in <code>AuthLayoutComponent</code> and <code>LandingLayoutComponent</code> (Location: src/app/shared/components/layouts). <code>AuthLayoutComponent</code> renders sessions view (Location:
+                        src/app/views/sessions) and <code>LandingLayoutComponent</code> renders all views except sessions view.</p>
+                    <p>Each directory in <code>src/app/views</code> is a module. And those modules are lazy loaded which is configured in <code>app-routing.module.ts</code> (Location: src/app). And also each modules has it's own routing file defines it's
+                        child routes.</p>
+                </div>
+
+
+                <div id="theming" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <h3>Theming Guide</h3>
+
+                    <p> custom theme included.</p>
+                    <ul>
+                        <li>lite</li>
+
+                    </ul>
+                    <h4>Create Your Own Theme</h4>
+                    <p>Theme scss files are located in <code>src/assets/styles/themes</code></p>
+
+                    <p>Open <code>_custom.scss</code> (Location: src/assets/styles/themes/lite/_custom.scss) and and change the color variables.
+
+                   <p> Then Import the _custom.scss file into _themes.scss file.</p>
+                   <h4>Change The Main Background color</h4>
+                   <p>To change the background color Using css class,such as to change the background of the v1 layout you need to add the css class in the main wrap div of the landing-v1.component.html file
+                  or you can use the ngClass .for this you need to assign the class name in landing-v1.component.ts file "backgroundColor" property.
+                   </p>
+                   <code>
+                       
+    &lt;div class="landing_wrap landing-gradient-blue-red" [ngClass]="[backgroundColor]" &gt; <br>
+    &lt;app-header &gt; <br>
+    &lt;/app-header &gt; <br>
+    &lt;app-intro1 &gt; &lt;/app-intro1 &gt; <br>
+    &lt;app-features &gt; &lt;/app-features &gt; <br>
+    &lt;app-services &gt; &lt;/app-services &gt; <br>
+    &lt;app-works-carousel &gt; &lt;/app-works-carousel &gt; <br>
+    &lt;app-best &gt; &lt;/app-best &gt; <br>
+    &lt;app-left-image &gt; &lt;/app-left-image &gt; <br>
+    &lt;app-right-image &gt; &lt;/app-right-image &gt; <br>
+    &lt;app-pricing-one &gt; &lt;/app-pricing-one &gt; <br>
+    &lt;app-team &gt; &lt;/app-team &gt; <br>
+    &lt;app-testimonial &gt; &lt;/app-testimonial &gt; <br>
+    &lt;app-news-two &gt; &lt;/app-news-two &gt; <br>
+    &lt;app-faqs &gt; &lt;/app-faqs &gt; <br>
+    &lt;app-contact-form &gt; &lt;/app-contact-form &gt; <br>
+
+&lt;/div &gt; 
+                   </code>
+
+                   <h4>available Background Classes</h4>
+<p>
+            <h5>Solid Background</h5>
+            <ul>
+                <li>landing-blue</li>
+                <li>landing-teal</li>
+                <li>landing-midnight-blue</li>
+                <li>landing-indigo</li>
+                <li>landing-dark-purple</li>
+                <li>landing-purple</li>
+                <li>landing-pink</li>
+                <li>landing-red</li>
+                <li>landing-gray</li>
+                <li>landing-slate-gray</li>
+              
+            </ul>
+</p>
+
+    <p>
+    <h5>Gradient Background</h5>
+    <ul>
+        <li>landing-gradient-purple-indigo</li>
+        <li>landing-gradient-blue-red</li>
+        <li>landing-gradient-black-blue</li>
+        <li>landing-gradient-black-gray</li>
+        <li>landing-gradient-steel-gray</li>
+        <li>landing-gradient-grade-gray</li>
+        <li>landing-gradient-cristal-clear</li>
+        <li>landing-gradient-cool-blue</li>
+        <li>landing-gradient-moonlight-asteriod</li>
+        <li>landing-gradient-hervey</li>
+        <li>landing-gradient-altra-violet</li>
+        <li>landing-gradient-slight-ocean</li>
+        <li>landing-gradient-red-sunset</li>
+        <li>landing-gradient-quepal</li>
+        <li>landing-gradient-lawrencium</li>
+        <li>landing-gradient-meridian</li>
+       
+     
+    </ul>
+</p>
+<p>Colors are defines in _colors.scss file</p>
+
+                        <p>
+                            <h5>Color variables</h5>
+                            <ul>
+                                <li>primary</li>
+                                <li>secondary</li>
+                                <li>success</li>
+                                <li>warning</li>
+                                <li>info</li>
+                                <li>danger</li>
+                                <li>light</li>
+                                <li>dark</li>
+                            </ul>
+                        </p>
+
+
+                            <p>For more about theming, visit these links</p>
+                            <ul>
+                                <li><a href="https://getbootstrap.com/docs/4.1/getting-started/theming/#theme-colors" target="_blank">Creating new bootstrap theme.</a></li>
+                            </ul>
+                </div>
+
+
+
+
+
+                <div id="classes" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <h3>Common CSS Classes</h3>
+                    <div class="mdl-cell--6-col mdl-grid">
+                        <h5>Background color</h5>
+                        <ul>
+                            <li>.bg-primary</li>
+                            <li>.bg-success</li>
+                            <li>.bg-warning</li>
+                            <li>.bg-danger</li>
+                            <li>.bg-light</li>
+                            <li>.bg-dark</li>
+                        </ul>
+                        <br>
+
+                        <h5>Color</h5>
+                        <ul>
+                            <li>.text-primary</li>
+                            <li>.text-success</li>
+                            <li>.text-warning</li>
+                            <li>.text-danger</li>
+                            <li>.text-light</li>
+                            <li>.text-dark</li>
+                        </ul>
+
+                    </div>
+                    <div class="mdl-cell--6-col mdl-grid">
+                        <h5>Margins</h5>
+                        <ul>
+                            <li>.m-0</li>
+                            <li>.m-0</li>
+                            <li>.mt-1</li>
+                            <li>.mr-1</li>
+                            <li>.mb-1</li>
+                            <li>.ml-1</li>
+                            <li>.mb-05 </li>
+                        </ul>
+                        <h5>Paddings</h5>
+                        <ul>
+                            <li>.pt-1 </li>
+                            <li>.pr-1 </li>
+                            <li>.pb-1</li>
+                            <li>.pl-1 </li>
+                            <li>.p-0</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="https://getbootstrap.com/docs/4.1/utilities/borders/">View all Classes</a>
+                    </div>
+                </div>
+
+                <div id="dependencies" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <h3>Dependencies</h3>
+
+                    <b>ngu-carousel</b>
+                    <p>Doc: <a href="https://www.npmjs.com/package/@ngu/carousel" target="_blank">https://www.npmjs.com/package/@ngu/carousel</a></p>
+
+                    <b>ng-bootstrap</b>
+                    <p>Doc: <a href="https://ng-bootstrap.github.io" target="_blank">https://ng-bootstrap.github.io</a></p>
+
+
+
+                    <b>Eva Icons</b>
+                    <p>Doc: <a href="https://akveo.github.io/eva-icons/#/" target="_blank">https://akveo.github.io/eva-icons/#/</a></p>
+
+                    <b>Bootstrap</b>
+                    <p>Doc: <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></p>
+
+                    <b>Brust Images</b>
+                    <p>Doc: <a href="https://burst.shopify.com/" target="_blank">https://burst.shopify.com/</a></p>
+
+
+
+
+                </div>
+                <div id="rate" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid text-center">
+                    <p>Do you like Dexam?</p>
+                    <h5 class="m-0">Don't forget to give a 5 star rating.</h5>
+                    <p>This will inspire us to add more features.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <a href="https://themeforest.net/item/dexam-angular-bootstrap-app-landing-page/23137988" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-500 mdl-color-text--black">Buy Dexam</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54187421-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-54187421-6');
+    </script>
+
+</body>
+
+</html>
