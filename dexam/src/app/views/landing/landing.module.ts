@@ -76,6 +76,7 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import { UpcomingSessionListComponent } from './components/upcoming-session-list/upcoming-session-list.component';
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
+import { UserprofilepageComponent } from './pages/userprofilepage/userprofilepage.component';
 
 // import {DemoMaterialModule} from './material-module';
 
@@ -157,6 +158,7 @@ import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
     UpcomingSessionListComponent,
     ScheduleListComponent,
     MegaMenuComponent,
+    UserprofilepageComponent,
 
   ],
   providers: [WINDOW_PROVIDERS]

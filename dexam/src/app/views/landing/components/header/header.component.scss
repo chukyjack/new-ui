@@ -19,7 +19,9 @@ a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
-
+a:hover {
+    text-decoration: underline;
+}
 .mobile_menu {
     height: 60px;
     align-items: center;
@@ -252,8 +254,28 @@ span.navbar-toggler-icon .eva {
 
 
 
+.dropdown-contents {
+    display: block;
+    position: absolute;
+    background-color: #ffffff;
+    width: 60%;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    //z-index: 9999;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%;
+    //mso-border-shadow: yes;
+    //box-shadow: #0C0C3C;
+    //border-radius: 100px;
+}
 
-
+.dropdown-contents .headers {
+    background: #000101;
+    padding: 16px;
+    color: white;
+}
 
 //* {
 //    box-sizing: border-box;

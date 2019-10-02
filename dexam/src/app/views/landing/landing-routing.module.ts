@@ -20,6 +20,7 @@ import {OpportunitypageComponent} from "./pages/opportunitypage/opportunitypage.
 import {SchedulepageComponent} from "./pages/schedulepage/schedulepage.component";
 import {StudentspageComponent} from "./pages/studentspage/studentspage.component";
 import {TutorpageComponent} from "./pages/tutorpage/tutorpage.component";
+import {UserprofilepageComponent} from "./pages/userprofilepage/userprofilepage.component";
 
 const routes: Routes = [
   {
@@ -97,6 +98,10 @@ const routes: Routes = [
   {
     path: 'tutors',
     component: TutorpageComponent
+  },
+  {
+    path: 'profile',
+    component: UserprofilepageComponent
   },
    {
     path: "demos",
