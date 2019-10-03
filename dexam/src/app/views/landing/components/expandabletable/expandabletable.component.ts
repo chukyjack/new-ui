@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {SessionData} from "../sort-paginate-table/sort-paginate-table.component";
+import {SortPaginateTableService} from "../sort-paginate-table/sort-paginate-table.service";
 
 @Component({
   selector: 'app-expandabletable',
@@ -14,16 +19,49 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ],
 })
 export class ExpandabletableComponent implements OnInit {
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
+  public opportunities;
+  // columnsToDisplay = ['Subject', 'Start Date', 'Distance', 'Expected Pay', 'Details'];
+  columnsToDisplay = ['id',  'type', 'duration', 'location', 'details'];
   expandedElement: PeriodicElement;
-  dataSource = ELEMENT_DATA;
+  // dataSource = ELEMENT_DATA;
+  dataSource: MatTableDataSource<SessionData>;
 
-  constructor() { }
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private _expandPaginateTableService: SortPaginateTableService) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this._expandPaginateTableService.list().subscribe(
+        res => {
+          console.log(Object.values(res));
+          console.log('    ');
+          console.log(JSON.stringify(res));
+          this.opportunities = Array.from(Object.values(res)[1]);
+          this.dataSource = new MatTableDataSource(this.opportunities);
+          // this.dataSource.paginator = this.paginator;
+          // this.dataSource.sort = this.sort;
+        },
+        err => console.error(err),
+        () => console.log('successful')
+    );
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }
+
+
 export interface PeriodicElement {
   name: string;
   position: number;

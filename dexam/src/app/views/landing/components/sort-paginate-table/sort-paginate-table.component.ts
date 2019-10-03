@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatFormField} from '@angular/material/form-field';
 import {SortPaginateTableService} from './sort-paginate-table.service';
 // import {OpportunityService} from '../opportunity/opportunity.service";
@@ -33,13 +34,21 @@ export class SessionData {
 @Component({
   selector: 'app-sort-paginate-table',
   templateUrl: './sort-paginate-table.component.html',
-  styleUrls: ['./sort-paginate-table.component.scss']
+  styleUrls: ['./sort-paginate-table.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class SortPaginateTableComponent implements OnInit {
   public opportunities;
   public opportunities1;
   displayedColumns: string[] = ['id', 'type', 'location', 'duration'];
   dataSource: MatTableDataSource<SessionData>;
+  expandedElement: PeriodicElement;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -86,7 +95,13 @@ export class SortPaginateTableComponent implements OnInit {
   }
 
 }
-
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+  description: string;
+}
 /** Builds and returns a new User. */
 // function createNewUser(id: number): UserData {
 //   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +

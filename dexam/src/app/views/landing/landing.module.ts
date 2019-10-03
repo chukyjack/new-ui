@@ -77,24 +77,26 @@ import { UpcomingSessionListComponent } from './components/upcoming-session-list
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 import { UserprofilepageComponent } from './pages/userprofilepage/userprofilepage.component';
+import {MatButtonModule} from "@angular/material/button";
 
 // import {DemoMaterialModule} from './material-module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        LandingRoutingModule,
-        NguCarouselModule,
-        NgbModule,
+  imports: [
+    CommonModule,
+    LandingRoutingModule,
+    NguCarouselModule,
+    NgbModule,
 
-        FormsModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatPaginatorModule,
-        MatFormFieldModule,
-        MatSortModule,
-        MatInputModule
-    ],
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   declarations: [
     LandingV1Component,
     Intro1Component,

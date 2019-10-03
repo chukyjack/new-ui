@@ -6,7 +6,9 @@ table {
 
 .mat-form-field {
   font-size: 14px;
-  width: 100%;
+  width: 60%;
+  margin-right: 20%;
+  margin-left: 20%;
 }
 
 tr.example-detail-row {
@@ -26,7 +28,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .example-element-detail {
-  overflow: hidden;
+  //overflow: hidden;
   display: flex;
 }
 
@@ -52,3 +54,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-description-attribution {
   opacity: 0.5;
 }
+
+.addheight{
+  height: 500px;
+}
+
