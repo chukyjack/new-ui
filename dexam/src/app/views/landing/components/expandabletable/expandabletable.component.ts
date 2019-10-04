@@ -44,7 +44,7 @@ export class ExpandabletableComponent implements OnInit {
           this.opportunities = Array.from(Object.values(res)[1]);
           this.dataSource = new MatTableDataSource(this.opportunities);
           // this.dataSource.paginator = this.paginator;
-          // this.dataSource.sort = this.sort;
+          this.dataSource.sort = this.sort;
         },
         err => console.error(err),
         () => console.log('successful')
