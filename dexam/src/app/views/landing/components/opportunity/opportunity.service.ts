@@ -14,4 +14,11 @@ export class OpportunityService {
     // TODO: send the message _after_ fetching the sessions
     return this.http.get<Opportunity[]>('/api/v1/session');
   }
+
+  updateHero (opportunity: Opportunity): Observable<Opportunity> {
+    return this.http.put<Opportunity>('/api/v1/session', opportunity);
+        // .pipe(
+        //     catchError(this.handleError('updateHero', hero))
+        // );
+  }
 }
