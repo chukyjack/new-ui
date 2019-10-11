@@ -7,20 +7,24 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FilterPipe } from './filter.pipe';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
-
+//I keep the new line
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    SharedModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
+    declarations: [AppComponent, FilterPipe],
+    imports: [
+        BrowserModule,
+        SharedModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
 
-    AppRoutingModule,
+        AppRoutingModule,
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+        DateInputsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

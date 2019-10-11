@@ -63,7 +63,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from "@angular/material/input";
+import {MatInputModule} from '@angular/material/input';
 import { OpportunitypageComponent } from './pages/opportunitypage/opportunitypage.component';
 import { CoursepageComponent } from './pages/coursepage/coursepage.component';
 import { SchedulepageComponent } from './pages/schedulepage/schedulepage.component';
@@ -77,7 +77,29 @@ import { UpcomingSessionListComponent } from './components/upcoming-session-list
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 import { UserprofilepageComponent } from './pages/userprofilepage/userprofilepage.component';
-import {MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from '@angular/material/button';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { FilterPipe } from './pages/schedule/filter.pipe';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {IntlModule} from "@progress/kendo-angular-intl";
+import {DateInputsModule} from "@progress/kendo-angular-dateinputs";
+import { TimePickerComponent } from './components/time-picker/time-picker.component';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  IgxTimePickerModule,
+  IgxInputGroupModule,
+  IgxIconModule,
+  IgxSelectModule, IgxDatePickerModule
+} from 'igniteui-angular';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ScheduleFormComponent } from './components/schedule-form/schedule-form.component';
+
+
 
 // import {DemoMaterialModule} from './material-module';
 
@@ -95,7 +117,20 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     MatSortModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    DateInputsModule,
+    IntlModule,
+    // BrowserModule,
+    // BrowserAnimationsModule,
+    IgxTimePickerModule,
+    IgxInputGroupModule,
+    IgxIconModule,
+    IgxSelectModule,
+    IgxDatePickerModule,
   ],
   declarations: [
     LandingV1Component,
@@ -161,6 +196,13 @@ import {MatButtonModule} from "@angular/material/button";
     ScheduleListComponent,
     MegaMenuComponent,
     UserprofilepageComponent,
+    ProfileComponent,
+    OpportunitiesComponent,
+    ScheduleComponent,
+    FilterPipe,
+    TimePickerComponent,
+    DatePickerComponent,
+    ScheduleFormComponent,
 
   ],
   providers: [WINDOW_PROVIDERS]

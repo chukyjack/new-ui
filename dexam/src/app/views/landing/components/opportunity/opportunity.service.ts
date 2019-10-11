@@ -15,8 +15,8 @@ export class OpportunityService {
     return this.http.get<Opportunity[]>('/api/v1/session');
   }
 
-  updateHero (opportunity: Opportunity): Observable<Opportunity> {
-    return this.http.put<Opportunity>('/api/v1/session', opportunity);
+  acceptOpportunity (opportunity: Opportunity, id): Observable<Opportunity> {
+    return this.http.put<Opportunity>('/api/v1/session' + id, opportunity);
         // .pipe(
         //     catchError(this.handleError('updateHero', hero))
         // );

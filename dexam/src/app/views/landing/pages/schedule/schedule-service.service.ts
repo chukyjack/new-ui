@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {Appointment} from "../../components/schedule-form/schedule-form.component";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ScheduleServiceService {
+
+  constructor(private http: HttpClient) { }
+
+  postSchedule (data: Appointment): Observable<Appointment> {
+    console.log(data);
+    return this.http.post<Appointment>('/api/v1/schedule/', data);
+    // .pipe(
+    //     catchError(err => {return Observable<>;};)
+    // );
+  }
+  getSchedule(): Observable<Appointment[]> {
+    // TODO: send the message _after_ fetching the schedule
+    return this.http.get<Appointment[]>('/api/v1/schedule/');
+  }
+}

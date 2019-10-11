@@ -9,7 +9,7 @@ import {Student} from "./student";
 export class StudentListService {
 
   constructor(private http: HttpClient) { }
-  list(): Observable<Student[]> {
+  allstudents(): Observable<Student[]> {
     // TODO: send the message _after_ fetching the sessions
     return this.http.get<Student[]>('/api/v1/user');
   }

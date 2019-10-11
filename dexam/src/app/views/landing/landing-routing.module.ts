@@ -21,6 +21,11 @@ import {SchedulepageComponent} from "./pages/schedulepage/schedulepage.component
 import {StudentspageComponent} from "./pages/studentspage/studentspage.component";
 import {TutorpageComponent} from "./pages/tutorpage/tutorpage.component";
 import {UserprofilepageComponent} from "./pages/userprofilepage/userprofilepage.component";
+import {ProfileComponent} from "./pages/profile/profile.component";
+import {OpportunitiesComponent} from "./pages/opportunities/opportunities.component";
+import {ScheduleComponent} from "./pages/schedule/schedule.component";
+import {TimePickerComponent} from "./components/time-picker/time-picker.component";
+import {DatePickerComponent} from "./components/date-picker/date-picker.component";
 
 const routes: Routes = [
   {
@@ -80,11 +85,11 @@ const routes: Routes = [
     component: CoursepageComponent
   },
   {
-    path: 'schedule',
+    path: 'schedulepage',
     component: SchedulepageComponent
   },
   {
-    path: 'opportunities',
+    path: 'opportunity',
     component: OpportunitypageComponent
   },
   {
@@ -101,11 +106,31 @@ const routes: Routes = [
   },
   {
     path: 'profile',
+    component: ProfileComponent
+  },
+   {
+    path: 'userprofile',
     component: UserprofilepageComponent
   },
    {
-    path: "demos",
+    path: 'opportunities',
+    component: OpportunitiesComponent
+  },
+   {
+    path: 'schedule',
+    component: ScheduleComponent
+  },
+   {
+    path: 'time',
+    component: TimePickerComponent
+  },
+   {
+    path: 'demos',
     component: DemosComponent
+  },
+   {
+    path: 'date',
+    component: DatePickerComponent
   }
 ];
 

@@ -1,0 +1,46 @@
+<div class="card-header border-0">
+<form (ngSubmit)="onSubmit()">
+  <div class="row">
+  <div class="col-md-2">
+    <div class="form-group">
+      <igx-select [(ngModel)]="model.student" name="student">
+        <label igxLabel>Select Student</label>
+        <igx-select-item *ngFor="let item of myStudents" [value]="item.id">
+          {{item.first_name + ' ' + item.last_name}}
+        </igx-select-item>
+      </igx-select>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <igx-select [(ngModel)]="model.subject" name="subject">
+        <label igxLabel>Select Subject</label>
+        <igx-select-item *ngFor="let item of optionsSelect" [value]="item.id">
+          {{item.name}}
+        </igx-select-item>
+      </igx-select>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+    <igx-date-picker id="editable-date-picker" #editable mode="dropdown" format="longDate" mask="dd-MM-y"
+                     [(ngModel)]="model.date" name="date">
+    </igx-date-picker>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <igx-time-picker id="time-picker" #timePicker [(ngModel)]="model.time" [mode]="mode" [format]="format" name="time">
+      </igx-time-picker>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+    <button type="submit" class="btn btn_control btn-primary"> <!--data-toggle="modal" data-target="#appointment-form-modal"> -->
+      Request appointment <i class="ni ni-fat-add"></i>
+    </button>
+    </div>
+  </div>
+  </div>
+</form>
+</div>

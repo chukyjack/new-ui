@@ -19,6 +19,9 @@ export class SessionData {
   type: number;
   location: string;
   duration: number;
+  subject: string;
+  distance: number;
+  resource_uri: string;
 }
 
 /** Constants used to fill up our data base. */

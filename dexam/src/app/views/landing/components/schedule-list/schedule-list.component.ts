@@ -8,8 +8,9 @@ import {Schedule} from './schedule';
 
 @Component({
   selector: 'app-schedule-list',
-  templateUrl: '../sort-paginate-table/sort-paginate-table.component.html',
-  styleUrls: ['../sort-paginate-table/sort-paginate-table.component.scss']
+  templateUrl: './schedule-list.component.html',
+  // templateUrl: '../sort-paginate-table/sort-paginate-table.component.html',
+  // styleUrls: ['../sort-paginate-table/sort-paginate-table.component.scss']
 })
 export class ScheduleListComponent implements OnInit {
   public schedules;

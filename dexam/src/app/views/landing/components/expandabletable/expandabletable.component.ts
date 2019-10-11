@@ -3,8 +3,9 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {SessionData} from '../sort-paginate-table/sort-paginate-table.component';
+import {SessionData, UserData} from '../sort-paginate-table/sort-paginate-table.component';
 import {SortPaginateTableService} from '../sort-paginate-table/sort-paginate-table.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-expandabletable',
@@ -20,11 +21,17 @@ import {SortPaginateTableService} from '../sort-paginate-table/sort-paginate-tab
 })
 export class ExpandabletableComponent implements OnInit {
   public opportunities;
+  public userSessiondetails;
   // columnsToDisplay = ['Subject', 'Start Date', 'Distance', 'Expected Pay', 'Details'];
   columnsToDisplay = ['subject',  'type', 'duration', 'location', 'details'];
   expandedElement: PeriodicElement;
   // dataSource = ELEMENT_DATA;
-  dataSource: MatTableDataSource<PeriodicElement>;
+  dataSource: MatTableDataSource<SessionData>;
+  public session;
+  public userId;
+
+
+
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -32,12 +39,13 @@ export class ExpandabletableComponent implements OnInit {
   constructor(private _expandPaginateTableService: SortPaginateTableService) { }
 
   ngOnInit() {
-    // this.getData();
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.getOpportunities();
+    // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     // this.dataSource.sort = this.sort;
+    this.getSessionDetails();
   }
 
-  getData() {
+  getOpportunities() {
     this._expandPaginateTableService.list().subscribe(
         res => {
           console.log(Object.values(res));
@@ -52,13 +60,42 @@ export class ExpandabletableComponent implements OnInit {
         () => console.log('successful')
     );
   }
-
+  acceptOpportunity(opportunity) {
+    opportunity.tutor = this.userId;
+    console.log('this is the user id');
+    console.log(this.userId);
+    console.log('this is the user id');
+    this._expandPaginateTableService.acceptOpportunity(opportunity).subscribe(
+        res => {
+          console.log(res);
+    },
+        err => console.error(err),
+        () => console.log('succesfully accepted')
+    );
+    console.log('accepted opportunity' + JSON.stringify(opportunity));
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  getSessionDetails() {
+    this._expandPaginateTableService.setUserSessionDetails().subscribe(
+        res => {
+          console.log(Object.values(res));
+          console.log('    ');
+          console.log(JSON.stringify(res));
+          this.session = res;
+          this.userId = res['user_id'];
+          console.log(this.session);
+          console.log(this.session);
+
+        },
+        err => console.error(err),
+        () => console.log('successful')
+    );
   }
 
 }

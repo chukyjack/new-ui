@@ -31,15 +31,29 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/assets/styles/app/_app.scss",
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/scss/paper-dashboard.scss"
+              "src/assets/scss/paper-dashboard.scss",
+              "src/assets/css/argon-dashboard.css",
+              "src/assets/js/plugins/nucleo/css/nucleo.css",
+              "src/assets/js/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
+              "src/assets/js/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css",
+              "src/assets/js/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css",
+              "src/assets/js/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css",
+              "./node_modules/ng-pick-datetime/assets/style/picker.min.css",
+              "node_modules/igniteui-angular/styles/igniteui-angular.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/plugins/jquery/dist/jquery.min.js",
+              "src/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
             ]
           },
           "configurations": {
@@ -88,8 +102,12 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/igniteui-angular/styles/igniteui-angular.css"
             ],
             "scripts": [],
             "assets": [

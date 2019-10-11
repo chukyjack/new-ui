@@ -10,7 +10,7 @@ import { WINDOW_PROVIDERS, WINDOW } from '../../helpers/window.helpers';
 export class HeaderComponent implements OnInit {
   isFixed;
   public isCollapsed = true;
-  backgroundColor = "landing-blue"
+  // backgroundColor = "landing-blue"
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window

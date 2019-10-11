@@ -24,7 +24,7 @@ export class StudentListComponent implements OnInit {
     this.getStudents();
   }
   getStudents() {
-    this._studentService.list().subscribe(
+    this._studentService.allstudents().subscribe(
         res => {
           this.students = Object.values(res)[1];
           this.dataSource = new MatTableDataSource(this.students);
