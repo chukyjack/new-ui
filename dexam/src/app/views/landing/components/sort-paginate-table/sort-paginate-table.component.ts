@@ -49,7 +49,7 @@ export class SessionData {
 export class SortPaginateTableComponent implements OnInit {
   public opportunities;
   public opportunities1;
-  displayedColumns: string[] = ['id', 'type', 'location', 'duration'];
+  displayedColumns: string[] = ['id', 'type', 'location', 'duration', 'accept'];
   dataSource: MatTableDataSource<SessionData>;
   expandedElement: PeriodicElement;
 

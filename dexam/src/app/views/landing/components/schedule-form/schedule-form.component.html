@@ -23,7 +23,7 @@
   </div>
   <div class="col-md-2">
     <div class="form-group">
-    <igx-date-picker id="editable-date-picker" #editable mode="dropdown" format="longDate" mask="dd-MM-y"
+    <igx-date-picker id="editable-date-picker" #editable mode="dropdown" format="longDate" mask="DD-MM-YY"
                      [(ngModel)]="model.date" name="date">
     </igx-date-picker>
     </div>
@@ -36,11 +36,12 @@
   </div>
   <div class="col-md-2">
     <div class="form-group">
-    <button type="submit" class="btn btn_control btn-primary"> <!--data-toggle="modal" data-target="#appointment-form-modal"> -->
+    <button type="submit" class="btn btn_control btn-success"> <!--data-toggle="modal" data-target="#appointment-form-modal"> -->
       Request appointment <i class="ni ni-fat-add"></i>
     </button>
     </div>
   </div>
   </div>
 </form>
+  <mat-spinner class="loading-indicator" *ngIf="showSpinner"></mat-spinner>
 </div>

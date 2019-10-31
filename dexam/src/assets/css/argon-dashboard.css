@@ -2598,41 +2598,41 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #2dce89;
-  border-color: #2dce89;
+  background-color: #09366e;
+  border-color: #09366e;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #2dce89;
-  border-color: #2dce89;
+  background-color: #09366e !important;
+  border-color: #22356e;
 }
 
 .btn-success:focus,
 .btn-success.focus {
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 0 rgba(45, 206, 137, 0.5);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 0 rgba(9, 54, 110, 0.5) !important;
 }
 
 .btn-success.disabled,
 .btn-success:disabled {
   color: #fff;
-  background-color: #2dce89;
-  border-color: #2dce89;
+  background-color: #09366e;
+  border-color: #09366e;
 }
 
 .btn-success:not(:disabled):not(.disabled):active,
 .btn-success:not(:disabled):not(.disabled).active,
 .show>.btn-success.dropdown-toggle {
   color: #fff;
-  background-color: #24a46d;
-  border-color: #2dce89;
+  background-color: #09366e;
+  border-color: #09366e;
 }
 
 .btn-success:not(:disabled):not(.disabled):active:focus,
 .btn-success:not(:disabled):not(.disabled).active:focus,
 .show>.btn-success.dropdown-toggle:focus {
-  box-shadow: none, 0 0 0 0 rgba(45, 206, 137, 0.5);
+  box-shadow: none, 0 0 0 0 rgba(9, 54, 110, 0.5);
 }
 
 .btn-info {
@@ -6908,7 +6908,7 @@ button.bg-dark:focus {
 }
 
 .bg-default {
-  background-color: #172b4d !important;
+  background-color: #09366e !important;
 }
 
 a.bg-default:hover,
@@ -14982,7 +14982,7 @@ a.text-lighter:focus {
 }
 
 .btn-neutral {
-  color: #5e72e4;
+  color: #09366e;
 }
 
 .btn-icon .btn-inner--icon img {
@@ -16656,11 +16656,11 @@ textarea[resize="horizontal"] {
 }
 
 .nav-link {
-  color: #525f7f;
+  color: #09366e;
 }
 
 .nav-link:hover {
-  color: #5e72e4;
+  color: #09366e;
 }
 
 .nav-link i.ni {
@@ -20682,4 +20682,9 @@ pre>code.highlight {
   margin-left: 1rem;
 }
 
+.thead-dark-mine{
+  background-color: #09366e !important;
+  color: #ffefef;
+  /*width: 90% !important;*/
+}
 /*# sourceMappingURL=dashboard-free.css.map */

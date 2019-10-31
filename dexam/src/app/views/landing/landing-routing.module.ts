@@ -26,6 +26,9 @@ import {OpportunitiesComponent} from "./pages/opportunities/opportunities.compon
 import {ScheduleComponent} from "./pages/schedule/schedule.component";
 import {TimePickerComponent} from "./components/time-picker/time-picker.component";
 import {DatePickerComponent} from "./components/date-picker/date-picker.component";
+import {SideNavComponent} from "./components/side-nav/side-nav.component";
+import {BillingComponent} from "./pages/billing/billing.component";
+import {ChatComponent} from "./pages/chat/chat.component";
 
 const routes: Routes = [
   {
@@ -92,10 +95,10 @@ const routes: Routes = [
     path: 'opportunity',
     component: OpportunitypageComponent
   },
-  {
-    path: 'billing',
-    component: InvoicepageComponent
-  },
+  // {
+  //   path: 'billing',
+  //   component: InvoicepageComponent
+  // },
   {
     path: 'students',
     component: StudentspageComponent
@@ -131,6 +134,19 @@ const routes: Routes = [
    {
     path: 'date',
     component: DatePickerComponent
+  },
+   {
+    path: 'sidenav',
+    component: SideNavComponent
+  }
+  ,
+   {
+    path: 'billing',
+    component: BillingComponent
+  },
+   {
+    path: 'chat',
+    component: ChatComponent
   }
 ];
 

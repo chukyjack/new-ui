@@ -52,7 +52,9 @@
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "ng-uikit-pro-standard": "git+https://oauth2:TheMXY9pYynFYYnpZoQU@git.mdbootstrap.com/mdb/angular/ng-uikit-pro-standard.git#7.5.4",
+    "@fortawesome/fontawesome-free": "^5.6.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",

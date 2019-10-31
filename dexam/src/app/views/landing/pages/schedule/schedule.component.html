@@ -90,37 +90,42 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item active ">
-          <a class=" nav-link " href=" ../index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " [routerLink]="['/landing/v9']"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../examples/icons.html">
-            <i class="ni ni-planet text-blue"></i> Icons
+          <a class="nav-link " [routerLink]="['/landing/schedule']">
+            <i class="ni ni-planet text-blue"></i> SCHEDULE
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../examples/maps.html">
-            <i class="ni ni-pin-3 text-orange"></i> Maps
+          <a class="nav-link " [routerLink]="['/landing/opportunities']">
+            <i class="ni ni-pin-3 text-orange"></i> OPPORTUNITIES
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../examples/profile.html">
-            <i class="ni ni-single-02 text-yellow"></i> User profile
+          <a class="nav-link " [routerLink]="['/landing/chat']">
+            <i class="ni ni-single-02 text-yellow"></i> MESSAGES
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  active " href="../examples/tables.html">
-            <i class="ni ni-bullet-list-67 text-red"></i> Tables
+          <a class="nav-link  active " [routerLink]="['/landing/billing']">
+            <i class="ni ni-bullet-list-67 text-red"></i> BILLING
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../examples/login.html">
-            <i class="ni ni-key-25 text-info"></i> Login
+          <a class="nav-link" [routerLink]="['/landing/students']">
+            <i class="ni ni-key-25 text-info"></i> STUDENTS
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../examples/register.html">
-            <i class="ni ni-circle-08 text-pink"></i> Register
+          <a class="nav-link" [routerLink]="['/landing/tutors']">
+            <i class="ni ni-circle-08 text-pink"></i> TUTORS
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/landing/profile']">
+            <i class="ni ni-key-25 text-info"></i> PROFILE
           </a>
         </li>
       </ul>
@@ -154,7 +159,7 @@
   <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
       <!-- Brand -->
-      <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">SCHEDULES <i class="ni ni-calendar-grid-58"></i>
+      <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html"> <i class="ni ni-calendar-grid-58"></i> SCHEDULES
       </a>
       <!-- Form -->
       <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
@@ -305,8 +310,9 @@
       </div>
     </div>
   </div>
+  <app-schedule-list></app-schedule-list>
   <div class="container-fluid mt--7">
-    <app-schedule-list></app-schedule-list>
+
 <!--    &lt;!&ndash; Table &ndash;&gt;-->
 <!--    <div class="row">-->
 <!--      <div class="col">-->
@@ -997,4 +1003,5 @@
 <!--    </footer>-->
 <!--  </div>-->
 <!--</div>-->
+</div>
 </div>

@@ -18,6 +18,7 @@ export class ScheduleFormComponent implements OnInit {
   public format: string = 'hh:mm tt';
   model = new Appointment();
   submitted = false;
+  public showSpinner = false;
   // public date: Date = new Date(2018, 10, 27, 17, 45, 0, 0);
 
 
@@ -43,9 +44,12 @@ export class ScheduleFormComponent implements OnInit {
     this._scheduleService.postSchedule(appointment).subscribe(
         res => {
           console.log(res);
+          this.showSpinner = true;
         },
         err => console.error(err),
-        () => console.log('succesfully accepted')
+        () => {console.log('succesfully accepted');
+        this.showSpinner = false;
+        }
     );
     console.log('accepted opportunity' + JSON.stringify(appointment));
   }

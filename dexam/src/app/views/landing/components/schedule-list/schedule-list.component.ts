@@ -10,12 +10,12 @@ import {Schedule} from './schedule';
   selector: 'app-schedule-list',
   templateUrl: './schedule-list.component.html',
   // templateUrl: '../sort-paginate-table/sort-paginate-table.component.html',
-  // styleUrls: ['../sort-paginate-table/sort-paginate-table.component.scss']
+  styleUrls: ['./schedule-list.component.scss']
 })
 export class ScheduleListComponent implements OnInit {
   public schedules;
   public opportunities1;
-  displayedColumns: string[] = ['id', 'type', 'location', 'duration'];
+  displayedColumns: string[] = ['student', 'time', 'accept'];
   dataSource: MatTableDataSource<Schedule>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

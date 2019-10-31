@@ -75,7 +75,6 @@ import { TutorListComponent } from './components/tutor-list/tutor-list.component
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { UpcomingSessionListComponent } from './components/upcoming-session-list/upcoming-session-list.component';
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
-import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 import { UserprofilepageComponent } from './pages/userprofilepage/userprofilepage.component';
 import {MatButtonModule} from '@angular/material/button';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -98,7 +97,22 @@ import {
 } from 'igniteui-angular';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ScheduleFormComponent } from './components/schedule-form/schedule-form.component';
-
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { BillingComponent } from './pages/billing/billing.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import {
+  BadgeModule,
+  ButtonsModule,
+  CardsFreeModule,
+  CardsModule,
+  DropdownModule,
+  IconsModule,
+  NavbarModule, StickyHeaderModule,
+  WavesModule,
+} from 'ng-uikit-pro-standard';
+import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 
 
 // import {DemoMaterialModule} from './material-module';
@@ -131,6 +145,16 @@ import { ScheduleFormComponent } from './components/schedule-form/schedule-form.
     IgxIconModule,
     IgxSelectModule,
     IgxDatePickerModule,
+    MatProgressSpinnerModule,
+    CardsModule.forRoot(),
+    BadgeModule,
+    IconsModule,
+    ButtonsModule,
+    CardsFreeModule,
+    DropdownModule.forRoot(),
+    NavbarModule,
+    WavesModule,
+    StickyHeaderModule
   ],
   declarations: [
     LandingV1Component,
@@ -194,7 +218,6 @@ import { ScheduleFormComponent } from './components/schedule-form/schedule-form.
     StudentListComponent,
     UpcomingSessionListComponent,
     ScheduleListComponent,
-    MegaMenuComponent,
     UserprofilepageComponent,
     ProfileComponent,
     OpportunitiesComponent,
@@ -203,7 +226,15 @@ import { ScheduleFormComponent } from './components/schedule-form/schedule-form.
     TimePickerComponent,
     DatePickerComponent,
     ScheduleFormComponent,
+    SideNavComponent,
+    SpinnerComponent,
+    BillingComponent,
+    ChatComponent,
+    MegaMenuComponent,
 
+  ],
+  exports: [
+    MegaMenuComponent
   ],
   providers: [WINDOW_PROVIDERS]
 
