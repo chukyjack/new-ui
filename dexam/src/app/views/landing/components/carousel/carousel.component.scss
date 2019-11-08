@@ -1,0 +1,40 @@
+.carousel-width{
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+}
+@media (min-width: 56.25em) {
+  .edge-hero--light {
+    color: #fff;
+  }
+}
+@media (min-width: 56.25em) {
+  .edge-hero {
+    background: #adaead;
+    text-align: left;
+  }
+}
+.edge-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1440px;
+  text-align: center;
+}
+@media (min-width: 56.25em) {
+  .edge-hero__heading {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    //position: absolute;
+    margin-top: 3%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+//
+.edge-hero__heading {
+  padding: .5rem 0;
+}

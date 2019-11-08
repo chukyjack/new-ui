@@ -106,13 +106,16 @@ import {
   BadgeModule,
   ButtonsModule,
   CardsFreeModule,
-  CardsModule,
+  CardsModule, CarouselModule,
   DropdownModule,
   IconsModule,
   NavbarModule, StickyHeaderModule,
   WavesModule,
 } from 'ng-uikit-pro-standard';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { ContactBoxComponent } from './components/contact-box/contact-box.component';
+import { ContactBox2Component } from './components/contact-box2/contact-box2.component';
 
 
 // import {DemoMaterialModule} from './material-module';
@@ -154,7 +157,8 @@ import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
     DropdownModule.forRoot(),
     NavbarModule,
     WavesModule,
-    StickyHeaderModule
+    StickyHeaderModule,
+    CarouselModule
   ],
   declarations: [
     LandingV1Component,
@@ -231,6 +235,9 @@ import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
     BillingComponent,
     ChatComponent,
     MegaMenuComponent,
+    CarouselComponent,
+    ContactBoxComponent,
+    ContactBox2Component,
 
   ],
   exports: [
