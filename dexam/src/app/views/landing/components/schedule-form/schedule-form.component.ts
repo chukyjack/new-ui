@@ -5,6 +5,7 @@ import {ScheduleListService} from "../schedule-list/schedule-list.service";
 import {ScheduleServiceService} from "../../pages/schedule/schedule-service.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {StudentListService} from "../student-list/student-list.service";
+import {IMyOptions} from "ng-uikit-pro-standard";
 
 @Component({
   selector: 'app-schedule-form',
@@ -19,20 +20,28 @@ export class ScheduleFormComponent implements OnInit {
   model = new Appointment();
   submitted = false;
   public showSpinner = false;
+  public optionsTutors: Array<any>;
+  public optionsSubjects: Array<any>;
+  public myDatePickerOptions: IMyOptions = {
+        // Your options
+    };
+  // optionsSelect: Array<any>;
   // public date: Date = new Date(2018, 10, 27, 17, 45, 0, 0);
 
 
   constructor(private _scheduleService: ScheduleServiceService, private _studentService: StudentListService) { }
 
   ngOnInit() {
-    this.optionsSelect = [
-      { id: '1', name: 'Indiana Jones' },
-      { id: '2', name: 'Jhonny Depp' },
-      { id: '3', name: 'Donald Dump' },
-      { id: '3', name: 'Chukwuka Agu' },
-      { id: '3', name: 'Malcom Xtra' },
-      { id: '3', name: 'Didier Drogba' },
-    ];
+      this.optionsTutors = [
+          { value: '1', label: 'Option 14' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' },
+      ];
+      this.optionsSubjects = [
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' },
+      ];
     this.getStudents();
   }
   onSubmit() {

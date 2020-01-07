@@ -1,5 +1,6 @@
 import { Component, HostListener, ViewChild, Renderer2, AfterViewInit, ElementRef } from '@angular/core';
 import {NavbarComponent} from 'ng-uikit-pro-standard';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,8 @@ import {NavbarComponent} from 'ng-uikit-pro-standard';
 export class MegaMenuComponent implements AfterViewInit {
   @ViewChild('nav') public nav: NavbarComponent;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) {
+  }
 
   transformDropdowns() {
     const dropdownMenu = Array.from(this.el.nativeElement.querySelectorAll('.dropdown-menu'));
@@ -47,4 +49,7 @@ export class MegaMenuComponent implements AfterViewInit {
     this.transformDropdowns();
   }
 
+  gotoLogin() {
+    this.router.navigateByUrl('/landing/v8');
+  }
 }

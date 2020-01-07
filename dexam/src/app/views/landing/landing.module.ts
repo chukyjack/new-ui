@@ -103,63 +103,70 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BillingComponent } from './pages/billing/billing.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import {
-  BadgeModule,
-  ButtonsModule,
-  CardsFreeModule,
-  CardsModule, CarouselModule,
-  DropdownModule,
-  IconsModule,
-  NavbarModule, StickyHeaderModule,
-  WavesModule,
+    BadgeModule,
+    ButtonsModule,
+    CardsFreeModule,
+    CardsModule, CarouselModule, DatepickerModule,
+    DropdownModule,
+    IconsModule,
+    NavbarModule, SelectModule, StickyHeaderModule,
+    WavesModule, TimePickerModule
 } from 'ng-uikit-pro-standard';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ContactBoxComponent } from './components/contact-box/contact-box.component';
 import { ContactBox2Component } from './components/contact-box2/contact-box2.component';
-
+import { NewFooterComponent } from './components/new-footer/new-footer.component';
+import { SeenOnComponent } from './components/seen-on/seen-on.component';
+// Angular Animations Module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchSelectComponent } from './components/search-select/search-select.component';
 
 // import {DemoMaterialModule} from './material-module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    LandingRoutingModule,
-    NguCarouselModule,
-    NgbModule,
+    imports: [
+        CommonModule,
+        LandingRoutingModule,
+        NguCarouselModule,
+        NgbModule,
 
-    FormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatSortModule,
-    MatInputModule,
-    MatButtonModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    DateInputsModule,
-    IntlModule,
-    // BrowserModule,
-    // BrowserAnimationsModule,
-    IgxTimePickerModule,
-    IgxInputGroupModule,
-    IgxIconModule,
-    IgxSelectModule,
-    IgxDatePickerModule,
-    MatProgressSpinnerModule,
-    CardsModule.forRoot(),
-    BadgeModule,
-    IconsModule,
-    ButtonsModule,
-    CardsFreeModule,
-    DropdownModule.forRoot(),
-    NavbarModule,
-    WavesModule,
-    StickyHeaderModule,
-    CarouselModule
-  ],
+        FormsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatSortModule,
+        MatInputModule,
+        MatButtonModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        DateInputsModule,
+        IntlModule,
+        // BrowserModule,
+        // BrowserAnimationsModule,
+        IgxTimePickerModule,
+        IgxInputGroupModule,
+        IgxIconModule,
+        IgxSelectModule,
+        IgxDatePickerModule,
+        MatProgressSpinnerModule,
+        CardsModule.forRoot(),
+        BadgeModule,
+        IconsModule,
+        ButtonsModule,
+        CardsFreeModule,
+        DropdownModule.forRoot(),
+        NavbarModule,
+        WavesModule,
+        StickyHeaderModule,
+        CarouselModule,
+        SelectModule,
+        DatepickerModule,
+        TimePickerModule
+    ],
   declarations: [
     LandingV1Component,
     Intro1Component,
@@ -238,6 +245,9 @@ import { ContactBox2Component } from './components/contact-box2/contact-box2.com
     CarouselComponent,
     ContactBoxComponent,
     ContactBox2Component,
+    NewFooterComponent,
+    SeenOnComponent,
+    SearchSelectComponent,
 
   ],
   exports: [
