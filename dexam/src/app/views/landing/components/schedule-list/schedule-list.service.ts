@@ -14,6 +14,10 @@ export class ScheduleListService {
     // TODO: send the message _after_ fetching the sessions
     return this.http.get<Schedule[]>('/api/v1/schedule');
   }
+  confirm(id, data) {
+    // TODO: send the message _after_ fetching the sessions
+    return this.http.patch('/api/v1/schedule/' + id + '/', data);
+  }
 }
 
 export class Schedule {

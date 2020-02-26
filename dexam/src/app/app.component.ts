@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
+import {MatProgressSpinnerModule} from '@angular/material';
+import {Observable} from "rxjs";
+import {IsLoadingService} from "@service-work/is-loading";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -7,9 +10,12 @@ import { Router, NavigationEnd } from "@angular/router";
 })
 export class AppComponent implements OnInit {
   title = "dexam";
-  constructor(private router: Router) {}
+  isLoading: Observable<boolean>;
+  constructor(private router: Router, private isLoadingService: IsLoadingService) {}
 
   ngOnInit() {
+    this.isLoading = this.isLoadingService.isLoading$();
+
     this.router.events.subscribe(evt => {
       if (!(evt instanceof NavigationEnd)) {
         return;

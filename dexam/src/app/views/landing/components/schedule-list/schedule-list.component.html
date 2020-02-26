@@ -1,293 +1,418 @@
 <!-- Table -->
+<!--<div class="card shadow">-->
+<!--  <div class="card-header border-0">-->
+<!--    &lt;!&ndash;            <h3 class="mb-0">Schedule</h3>&ndash;&gt;-->
+<!--    <div class="row centre ">-->
+<!--      <app-schedule-form></app-schedule-form>-->
 
-<div class="row">
-<!--  <div class="col"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container card-header">
+  <div class="row centre-form">
+    <app-schedule-form></app-schedule-form>
+  </div>
+</div>
 
-  <div class="col">
-    <div class="card shadow">
-      <div class="card-header border-0">
-        <!--            <h3 class="mb-0">Schedule</h3>-->
-        <div class="row centre">
-          <app-schedule-form></app-schedule-form>
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-6 mx-auto">-->
+<!--&lt;!&ndash;      <div class="md-form">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"&ndash;&gt;-->
+<!--&lt;!&ndash;               mdbInput>&ndash;&gt;-->
+<!--&lt;!&ndash;        <label for="search-input">Search</label>&ndash;&gt;-->
+<!--      <h3 class="centre-text">Upcoming Appointments</h3>-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+<!--    <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">-->
+<!--      <thead class="sticky-top">-->
+<!--      <tr>-->
+<!--        <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"-->
+<!--            scope="col">{{head | titlecase}} <mdb-icon fas icon="sort"></mdb-icon>-->
+<!--        </th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody #row>-->
+<!--      <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">-->
+<!--        <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{el.name}}</th>-->
+<!--        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="red-text">{{el.subject}}</td>-->
+<!--        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.start_time}}</td>-->
+<!--        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.location}}</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--      <tfoot class="grey lighten-5 w-100">-->
+<!--      <tr>-->
+<!--        <td colspan="4">-->
+<!--          <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tfoot>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
 
-        </div>
-        <div class="table-responsive">
-          <div class="mat-elevation-z8">
-            <table class="customers table align-items-center table-flush" mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
-              <!--    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">-->
-              <!--      <th mat-header-cell *matHeaderCellDef> {{column}} </th>-->
-              <!--      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>-->
-              <!--    </ng-container>-->
 
-              <!-- ID Column -->
-              <ng-container matColumnDef="student">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Student </th>
-                <td mat-cell *matCellDef="let row"> {{row.student}} </td>
-              </ng-container>
+<!--<div class="container">-->
+<!--  <table mdbTable #tableEl="mdbTable" class="z-depth-1">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}-->
+<!--      </th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let el of elements; let i = index">-->
+<!--      <th scope="row">{{el.id}}</th>-->
+<!--      <td >{{el.first}}</td>-->
+<!--      <td >{{el.last}}</td>-->
+<!--      <td >{{el.handle}}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--    <tfoot class="grey lighten-5 w-100">-->
+<!--    <tr>-->
+<!--      <td colspan="4">-->
+<!--        <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tfoot>-->
+<!--  </table>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--&lt;!&ndash;  <div class="col"></div>&ndash;&gt;-->
 
-              <!--    &lt;!&ndash; Progress Column &ndash;&gt;-->
-              <!--    <ng-container matColumnDef="subject">-->
-              <!--      <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>-->
-              <!--      <td mat-cell *matCellDef="let row"> {{row.subject}} </td>-->
-              <!--    </ng-container>-->
+<!--&lt;!&ndash;  <div class="col">&ndash;&gt;-->
+<!--    <div class="card shadow">-->
+<!--      <div class="card-header border-0">-->
+<!--        &lt;!&ndash;            <h3 class="mb-0">Schedule</h3>&ndash;&gt;-->
+<!--        <div class="row centre ">-->
+<!--          <app-schedule-form></app-schedule-form>-->
 
-              <!-- Color Column -->
-              <ng-container matColumnDef="time">
-                <th scope="col" *matHeaderCellDef mat-sort-header> Time </th>
-                <td *matCellDef="let row" [style.color]="row.color"> 12 OCT, 4:30PM</td>
-              </ng-container>
+<!--        </div>-->
 
-              <ng-container matColumnDef="accept">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> accept </th>
-                <td  *matCellDef="let row" [style.color]="row.color">
-                  <button type="button" class="btn btn-sm btn-success">Edit</button>
-                  <button type="button" class="btn btn-sm btn-warning">Contact</button>
-                </td>
-              </ng-container>
-              <thead class="thead-dark-mine">
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-              </tr>
-              </thead>
-            </table>
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-6 mx-auto">-->
+<!--              <div class="md-form">-->
+<!--                <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"-->
+<!--                       mdbInput>-->
+<!--                <label for="search-input">Search</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">-->
+<!--              <thead class="sticky-top">-->
+<!--              <tr>-->
+<!--                <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"-->
+<!--                    scope="col">{{head | titlecase}} <mdb-icon fas icon="sort"></mdb-icon>-->
+<!--                </th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody #row>-->
+<!--              <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">-->
+<!--                <th >{{el.id}}</th>-->
+<!--                <td  class="red-text">{{el.student}}</td>-->
+<!--                <td >{{el.subject}}</td>-->
+<!--                <td >{{el.start_time}}</td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--              <tfoot class="grey lighten-5 w-100">-->
+<!--              <tr>-->
+<!--                <td colspan="4">-->
+<!--                  <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              </tfoot>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="table-responsive">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="mat-elevation-z8">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <div class="col-md-6 mx-auto">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <div class="md-form">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <input type="text" class="form-control" [(ngModel)]="searchText" name="searchtext" (keyup)="searchItems()" id="search-input"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                       mdbInput>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <label for="search-input">Search</label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </div>&ndash;&gt;&ndash;&gt;-->
 
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-          </div>
 
-<!--          <div class="mat-elevation-z8">-->
-<!--            <table class="customers " mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>-->
-<!--              &lt;!&ndash;    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">&ndash;&gt;-->
-<!--              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef> {{column}} </th>&ndash;&gt;-->
-<!--              &lt;!&ndash;      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>&ndash;&gt;-->
-<!--              &lt;!&ndash;    </ng-container>&ndash;&gt;-->
 
-<!--              &lt;!&ndash; ID Column &ndash;&gt;-->
-<!--              <ng-container matColumnDef="student">-->
-<!--                <th mat-header-cell *matHeaderCellDef mat-sort-header> Student </th>-->
-<!--                <td mat-cell *matCellDef="let row"> {{row.student}} </td>-->
-<!--              </ng-container>-->
+<!--&lt;!&ndash;            <table class="customers table align-items-center table-flush" mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef> {{column}} </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    </ng-container>&ndash;&gt;&ndash;&gt;-->
 
-<!--              &lt;!&ndash; Progress Column &ndash;&gt;-->
-<!--              <ng-container matColumnDef="subject">-->
-<!--                <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>-->
-<!--                <td mat-cell *matCellDef="let row"> {{row.subject}}% </td>-->
-<!--              </ng-container>-->
-
-<!--              &lt;!&ndash; Name Column &ndash;&gt;-->
-<!--              <ng-container matColumnDef="location">-->
-<!--                <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>-->
-<!--                <td mat-cell *matCellDef="let row"> {{row.location}} </td>-->
-<!--              </ng-container>-->
-
-<!--              &lt;!&ndash; Color Column &ndash;&gt;-->
-<!--              <ng-container matColumnDef="time">-->
-<!--                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>-->
-<!--                <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.start_time}} </td>-->
-<!--              </ng-container>-->
-
-<!--&lt;!&ndash;              <ng-container matColumnDef="accept">&ndash;&gt;-->
-<!--&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>&ndash;&gt;-->
-<!--&lt;!&ndash;                <td mat-cell *matCellDef="let row" [style.color]="row.color">&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                </td>&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash; ID Column &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              <ng-container matColumnDef="student">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Student </th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.student}} </td>&ndash;&gt;-->
 <!--&lt;!&ndash;              </ng-container>&ndash;&gt;-->
 
-<!--              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--              <tr mat-row *matRowDef="let row; columns: displayedColumns;">-->
-<!--              </tr>-->
-<!--            </table>-->
+<!--&lt;!&ndash;              &lt;!&ndash;    &lt;!&ndash; Progress Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    <ng-container matColumnDef="subject">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <td mat-cell *matCellDef="let row"> {{row.subject}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    </ng-container>&ndash;&gt;&ndash;&gt;-->
 
-<!--            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>-->
-<!--          </div>-->
+<!--&lt;!&ndash;              &lt;!&ndash; Color Column &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              <ng-container matColumnDef="time">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th scope="col" *matHeaderCellDef mat-sort-header> Time </th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td *matCellDef="let row" [style.color]="row.color"> 12 OCT, 4:30PM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ng-container>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <ng-container matColumnDef="accept">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> accept </th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td  *matCellDef="let row" [style.color]="row.color">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                </td>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ng-container>&ndash;&gt;-->
+<!--&lt;!&ndash;              <thead class="thead-dark-mine">&ndash;&gt;-->
+<!--&lt;!&ndash;              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              <tr mat-row *matRowDef="let row; columns: displayedColumns;">&ndash;&gt;-->
+<!--&lt;!&ndash;              </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;            </table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;          <div class="mat-elevation-z8">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <table class="customers " mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef> {{column}} </th>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;    </ng-container>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; ID Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="student">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Student </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.student}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; Progress Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="subject">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.subject}}% </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; Name Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="location">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.location}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; Color Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="time">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.start_time}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="accept">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row" [style.color]="row.color">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                </td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <tr mat-row *matRowDef="let row; columns: displayedColumns;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </table>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </div>&ndash;&gt;&ndash;&gt;-->
 
 
-<!--          <table class="table">-->
-<!--            <thead class=" text-primary">-->
-<!--            <th>-->
-<!--              Name-->
-<!--            </th>-->
-<!--            <th>-->
-<!--              Country-->
-<!--            </th>-->
-<!--            <th>-->
-<!--              City-->
-<!--            </th>-->
-<!--            <th class="text-right">-->
-<!--              Salary-->
-<!--            </th>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Dakota Rice-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Niger-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Oud-Turnhout-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $36,738-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Minerva Hooper-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Curaçao-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Sinaai-Waas-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $23,789-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Sage Rodriguez-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Netherlands-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Baileux-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $56,142-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Philip Chaney-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Korea, South-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Overland Park-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $38,735-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Doris Greene-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Malawi-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Feldkirchen in Kärnten-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $63,542-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Mason Porter-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Chile-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Gloucester-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $78,615-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td>-->
-<!--                Jon Porter-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Portugal-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                Gloucester-->
-<!--              </td>-->
-<!--              <td class="text-right">-->
-<!--                $98,615-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--          </table>-->
-<!--          <table class="table align-items-center table-flush">-->
-<!--            <thead class="thead-dark-mine">-->
-<!--            <tr>-->
-<!--              <th scope="col">Student</th>-->
-<!--              <th scope="col">Subject</th>-->
-<!--&lt;!&ndash;              <th scope="col">Location</th>&ndash;&gt;-->
-<!--              <th scope="col">Time</th>-->
-<!--              <th scope="col"></th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr *ngFor="let schedule of schedules">-->
-<!--              <th scope="row">-->
-<!--                <div class="media align-items-center">-->
-<!--                  <a href="#" class="avatar rounded-circle mr-3">-->
-<!--                    <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">-->
-<!--                  </a>-->
-<!--                  <div class="media-body">-->
-<!--                    <span class="mb-0 text-sm">{{schedule.student}}</span>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </th>-->
-<!--              <td>-->
-<!--                {{schedule.subject}}-->
-<!--              </td>-->
-<!--&lt;!&ndash;              <td>&ndash;&gt;-->
-<!--&lt;!&ndash;                      <span class="badge badge-dot mr-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <i class="bg-warning"></i> {{schedule.location}}&ndash;&gt;-->
-<!--&lt;!&ndash;                      </span>&ndash;&gt;-->
-<!--&lt;!&ndash;              </td>&ndash;&gt;-->
-<!--              <td>-->
-<!--                {{schedule.start_time}}-->
-<!--              </td>-->
-<!--              <td >-->
-<!--                <button type="button" class="btn btn-sm btn-success">Edit</button>-->
-<!--                <button type="button" class="btn btn-sm btn-warning">Contact</button>-->
+<!--&lt;!&ndash;&lt;!&ndash;          <table class="table">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <thead class=" text-primary">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Name&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Country&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              City&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Salary&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </thead>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Dakota Rice&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Niger&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Oud-Turnhout&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $36,738&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Minerva Hooper&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Curaçao&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Sinaai-Waas&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $23,789&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Sage Rodriguez&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Netherlands&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Baileux&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $56,142&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Philip Chaney&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Korea, South&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Overland Park&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $38,735&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Doris Greene&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Malawi&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Feldkirchen in Kärnten&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $63,542&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Mason Porter&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Chile&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Gloucester&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $78,615&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Jon Porter&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Portugal&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Gloucester&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $98,615&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </table>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          <table class="table align-items-center table-flush">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <thead class="thead-dark-mine">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col">Student</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col">Subject</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              <th scope="col">Location</th>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col">Time</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col"></th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </thead>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr *ngFor="let schedule of schedules">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="row">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="media align-items-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <a href="#" class="avatar rounded-circle mr-3">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  </a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <div class="media-body">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span class="mb-0 text-sm">{{schedule.student}}</span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                {{schedule.subject}}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                      <span class="badge badge-dot mr-4">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <i class="bg-warning"></i> {{schedule.location}}&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                      </span>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                {{schedule.start_time}}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td >&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;&ndash;&gt;-->
 
-<!--              </td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--          </table>-->
-        </div>
-<!--        <div class="card-footer py-4">-->
-<!--          <nav aria-label="...">-->
-<!--            <ul class="pagination justify-content-end mb-0">-->
-<!--              <li class="page-item disabled">-->
-<!--                <a class="page-link" href="#" tabindex="-1">-->
-<!--                  <i class="fas fa-angle-left"></i>-->
-<!--                  <span class="sr-only">Previous</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item active">-->
-<!--                <a class="page-link" href="#">1</a>-->
-<!--              </li>-->
-<!--              <li class="page-item">-->
-<!--                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>-->
-<!--              </li>-->
-<!--              <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--              <li class="page-item">-->
-<!--                <a class="page-link" href="#">-->
-<!--                  <i class="fas fa-angle-right"></i>-->
-<!--                  <span class="sr-only">Next</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </nav>-->
-<!--        </div>-->
-      </div>
-    </div>
-  </div>
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </table>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="card-footer py-4">&ndash;&gt;-->
+<!--&lt;!&ndash;          <nav aria-label="...">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ul class="pagination justify-content-end mb-0">&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item disabled">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#" tabindex="-1">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class="fas fa-angle-left"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="sr-only">Previous</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item active">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#">1</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item"><a class="page-link" href="#">3</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class="fas fa-angle-right"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="sr-only">Next</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;          </nav>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
 
   <!-- Dark table -->
 <!--  <div class="row mt-5">-->
@@ -683,4 +808,4 @@
       </div>
     </footer>
   </div>
-</div>
+<!--</div>-->

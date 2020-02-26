@@ -24,6 +24,21 @@ export class SessionData {
   resource_uri: string;
 }
 
+export class ProfileData {
+  user_id: number;
+  token: string;
+  username: string;
+  email: string;
+  frist_name: string;
+  last_name: string;
+  address: string;
+  city: string;
+  zipcode: number;
+  country: string;
+  about_me: string;
+  role: string;
+}
+
 /** Constants used to fill up our data base. */
 // const COLORS: string[] = [
 //   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',

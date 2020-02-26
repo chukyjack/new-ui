@@ -1,10 +1,11 @@
 <!--<div class="card-header">-->
-<form  (ngSubmit)="onSubmit()">
-  <div class="row">
-    <div class="col-md-6">
-      <mdb-select [options]="optionsSelect" placeholder="Choose your option"></mdb-select>
-    </div>
-  </div>
+
+<form class="form-inline" (ngSubmit)="onSubmit()">
+<!--  <div class="row">-->
+<!--    <div class="col-md-6">-->
+<!--      <mdb-select [options]="optionsSelect" placeholder="Choose your option"></mdb-select>-->
+<!--    </div>-->
+<!--  </div>-->
 <!--  <div class="row">-->
 <!--  <div class="col-md-2">-->
 <!--    <div class="form-group">-->
@@ -22,33 +23,66 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--    <div class="form-col">-->
-      <mdb-select [filterEnabled]="true" [options]="optionsTutors" placeholder="Select Tutor"></mdb-select>
+<!--      <mdb-select [filterEnabled]="true" [options]="optionsTutors" placeholder="Select Tutor"></mdb-select>-->
+<!--    <mdb-select [options]="iconsSelect" placeholder="Choose your option" label="Example label"></mdb-select>-->
+<!--    </div>-->
+
+<!--    <div class="form-col">-->
+<!--      <mdb-select [filterEnabled]="true" [options]="optionsSubjects" placeholder="Select Subject"></mdb-select>-->
 <!--    </div>-->
 <!--    <div class="form-col">-->
-      <mdb-select [filterEnabled]="true" [options]="optionsSubjects" placeholder="Select Subject"></mdb-select>
+<!--        <mdb-date-picker [inline]="true" name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>-->
 <!--    </div>-->
-  <div class="form-col">
-    <mdb-date-picker [inline]="true" name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>
-  </div>
-  <div class="form-col">
-<!--    <div class="md-form">-->
-      <input
-              type="time"
-              id="input"
-              class="form-control"
-              value="13:00"
-              mdbInput
-      />
+<!--    <div class="form-col">-->
+<!--        <mdb-date-picker [inline]="true" name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>-->
 <!--    </div>-->
-  </div>
-  <div class="form-col">
-
-    <button type="submit" > <!--data-toggle="modal" data-target="#appointment-form-modal"> -->
-      Request appointment <i class="ni ni-fat-add"></i>
-    </button>
-
-  </div>
+<!--  <div class="form-col">-->
+<!--&lt;!&ndash;    <div class="md-form">&ndash;&gt;-->
+<!--      <input-->
+<!--              type="time"-->
+<!--              id="input"-->
+<!--              class="form-control"-->
+<!--              value="13:00"-->
+<!--              mdbInput-->
+<!--      />-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
 <!--  </div>-->
+<!--  <div class="form-col">-->
+
+<!--    <button type="submit" > &lt;!&ndash;data-toggle="modal" data-target="#appointment-form-modal"> &ndash;&gt;-->
+<!--      Request appointment <i class="ni ni-fat-add"></i>-->
+<!--    </button>-->
+
+<!--  </div>-->
+<!--  </div>-->
+</form>
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit(requestForm.value)">
+<div class="row text-black-50">
+    <div class="col-md-3">
+        <mdb-select [options]="optionsTutors" [placeholder]="selectType" (selected)="getAssociatedCourses($event.value)" formControlName="requested_user"></mdb-select>
+    </div>
+    <div class="col-md-3">
+        <mdb-select [filterEnabled]="true" [options]="optionsSubjects" placeholder="Select Subject" formControlName="subject"></mdb-select>
+    </div><div class="col-md-2">
+    <mdb-date-picker [inline]="true" name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" required formControlName="date" ></mdb-date-picker>
+    </div><div class="col-md-2">
+    <input
+            type="time"
+            formControlName="start_time"
+            id="input"
+            name="start_time"
+            class="form-control"
+            mdbInput
+
+    />
+    </div><div class="col-md-2 ">
+<!--    <button type="submit" class="submit-button"> &lt;!&ndash;data-toggle="modal" data-target="#appointment-form-modal"> &ndash;&gt;-->
+<!--        Request appointment <i class="ni ni-fat-add"></i>-->
+<!--    </button>-->
+    <button mdbBtn color="orange" size="sm" mdbWavesEffect type="submit" class="m-0 btn-warning">Request</button>
+    </div>
+
+</div>
 </form>
   <mat-spinner class="loading-indicator" *ngIf="showSpinner"></mat-spinner>
 <!--</div>-->

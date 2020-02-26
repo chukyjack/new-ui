@@ -49,7 +49,7 @@ import { LandingV9Component } from './landing-v9/landing-v9.component';
 import { IntroTenComponent } from './components/intro-ten/intro-ten.component';
 import { LandingV10Component } from './landing-v10/landing-v10.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DemosComponent } from './components/demos/demos.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 import { BlogDetailsPageComponent } from './blog-details-page/blog-details-page.component';
@@ -110,7 +110,7 @@ import {
     DropdownModule,
     IconsModule,
     NavbarModule, SelectModule, StickyHeaderModule,
-    WavesModule, TimePickerModule
+    WavesModule, TimePickerModule, InputsModule, TableModule, ModalModule
 } from 'ng-uikit-pro-standard';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
@@ -121,6 +121,12 @@ import { SeenOnComponent } from './components/seen-on/seen-on.component';
 // Angular Animations Module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchSelectComponent } from './components/search-select/search-select.component';
+import { RemoteTablesComponent } from './components/remote-tables/remote-tables.component';
+import { CoursesComponent } from './pages/courses/courses.component';
+import { QuickGigsComponent } from './pages/quick-gigs/quick-gigs.component';
+import { ShowMoreComponent } from './components/show-more/show-more.component';
+import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
+import { GigComponent } from './components/gig/gig.component';
 
 // import {DemoMaterialModule} from './material-module';
 
@@ -165,7 +171,11 @@ import { SearchSelectComponent } from './components/search-select/search-select.
         CarouselModule,
         SelectModule,
         DatepickerModule,
-        TimePickerModule
+        TimePickerModule,
+        InputsModule,
+        TableModule,
+        ReactiveFormsModule,
+        ModalModule
     ],
   declarations: [
     LandingV1Component,
@@ -248,6 +258,12 @@ import { SearchSelectComponent } from './components/search-select/search-select.
     NewFooterComponent,
     SeenOnComponent,
     SearchSelectComponent,
+    RemoteTablesComponent,
+    CoursesComponent,
+    QuickGigsComponent,
+    ShowMoreComponent,
+    InfiniteScrollComponent,
+    GigComponent,
 
   ],
   exports: [

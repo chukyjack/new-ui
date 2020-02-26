@@ -7,3 +7,8 @@ export interface Student {
     address: string;
     contact: string;
 }
+
+export interface Associates {
+    value: number;
+    label: string;
+}

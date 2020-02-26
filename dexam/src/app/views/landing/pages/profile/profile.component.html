@@ -216,24 +216,24 @@
   </nav>
   <!-- End Navbar -->
   <!-- Header -->
-  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+  <div class="header bg-default pb-8 pt-5 pt-md-8" >
     <!-- Mask -->
-    <span class="mask bg-gradient-default opacity-8"></span>
+<!--    <span class="mask bg-gradient-default opacity-8"></span>-->
     <!-- Header container -->
-    <div class="container-fluid d-flex align-items-center">
-      <div class="row">
-        <div class="col-lg-7 col-md-10">
-          <h1 class="display-2 text-white">Hello Jesse</h1>
-          <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-          <a href="#!" class="btn btn-info">Edit profile</a>
-        </div>
-      </div>
-    </div>
+<!--    <div class="container-fluid d-flex align-items-center">-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-7 col-md-10">-->
+<!--          <h1 class="display-2 text-white">Hello Jesse</h1>-->
+<!--          <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>-->
+<!--          <a href="#!" class="btn btn-info">Edit profile</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
   <!-- Page content -->
-  <div class="container-fluid mt--7">
-    <div class="row">
-      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+  <div class="container-fluid ">
+    <div class="row centre-form">
+      <div class="col-xl-8 centre-form order-xl-1 mb-5 mb-xl-0">
         <div class="card card-profile shadow">
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
@@ -246,8 +246,8 @@
           </div>
           <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
             <div class="d-flex justify-content-between">
-              <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-              <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+<!--              <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>-->
+<!--              <a href="#" class="btn btn-sm btn-default float-right">Message</a>-->
             </div>
           </div>
           <div class="card-body pt-0 pt-md-4">
@@ -256,40 +256,39 @@
                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                   <div>
                     <span class="heading">22</span>
-                    <span class="description">Friends</span>
+                    <span class="description">Subjects</span>
                   </div>
                   <div>
-                    <span class="heading">10</span>
-                    <span class="description">Photos</span>
+                    <span class="heading">4.8</span>
+                    <span class="description">Rating</span>
                   </div>
                   <div>
                     <span class="heading">89</span>
-                    <span class="description">Comments</span>
+                    <span class="description">Completed sessions</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="text-center">
               <h3>
-                Jessica Jones<span class="font-weight-light">, 27</span>
+                {{profileDetails.first_name}} {{profileDetails.last_name}}
               </h3>
-              <div class="h5 font-weight-300">
-                <i class="ni location_pin mr-2"></i>Bucharest, Romania
-              </div>
-              <div class="h5 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-              </div>
-              <div>
-                <i class="ni education_hat mr-2"></i>University of Computer Science
-              </div>
+<!--              <div class="h5 font-weight-300">-->
+<!--                <i class="ni location_pin mr-2"></i>{{profileDetails.city}}, {{profileDetails.country}}-->
+<!--              </div>-->
+<!--              <div class="h5 mt-4" *ngIf="profileDetails.role==='tutor'">-->
+<!--                <i class="ni business_briefcase-24 mr-2"></i>{{profileDetails.title}}-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <i class="ni education_hat mr-2"></i>{{profileDetails.degree}}-->
+<!--              </div>-->
               <hr class="my-4" />
-              <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
-              <a href="#">Show more</a>
+              <p>{{profileDetails.personal_statement}}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xl-8 order-xl-1">
+      <div class="col-xl-8 centre-form order-xl-1">
         <div class="card bg-secondary shadow">
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
@@ -297,25 +296,25 @@
                 <h3 class="mb-0">My account</h3>
               </div>
               <div class="col-4 text-right">
-                <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                <a class="btn btn-sm btn-primary" (click)="editForm()">{{buttonLabel}}</a>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <form>
+            <form #profileform="ngForm" (ngSubmit)="save()" >
               <h6 class="heading-small text-muted mb-4">User information</h6>
               <div class="pl-lg-4">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-username">Username</label>
-                      <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                      <input type="text" id="input-username" class="form-control form-control-alternative" disabled=True placeholder="Username" [(ngModel)]="session.username" name="username">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-email">Email address</label>
-                      <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                      <input type="email" id="input-email" class="form-control form-control-alternative" disabled=True placeholder="jesse@example.com" [(ngModel)]="session.email" name="email">
                     </div>
                   </div>
                 </div>
@@ -323,13 +322,13 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-first-name">First name</label>
-                      <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                      <input type="text" id="input-first-name" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="First name" [(ngModel)]="session.first_name" name="firstname">
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="form-group">
+                    <div class="form-group" disabled="disableInput">
                       <label class="form-control-label" for="input-last-name">Last name</label>
-                      <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                      <input type="text" id="input-last-name" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="Last name" [(ngModel)]="session.last_name" name="lastname">
                     </div>
                   </div>
                 </div>
@@ -342,7 +341,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="input-address">Address</label>
-                      <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                      <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" [disabled]="disableInput" [(ngModel)]="session.address" name="address" type="text">
                     </div>
                   </div>
                 </div>
@@ -350,31 +349,147 @@
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="input-city">City</label>
-                      <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                      <input type="text" id="input-city" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="City" [(ngModel)]="session.city" name="city">
                     </div>
                   </div>
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="input-country">Country</label>
-                      <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                      <input type="text" id="input-country" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="Country" [(ngModel)]="session.country" name="country">
                     </div>
                   </div>
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="input-country">Postal code</label>
-                      <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                      <input type="number" id="input-postal-code" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="Postal code" [(ngModel)]="session.zipcode" name="zipcode">
                     </div>
                   </div>
                 </div>
               </div>
               <hr class="my-4" />
-              <!-- Description -->
-              <h6 class="heading-small text-muted mb-4">About me</h6>
-              <div class="pl-lg-4">
-                <div class="form-group">
-                  <label>About Me</label>
-                  <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                <h6 class="heading-small text-muted mb-4">About me</h6>
+                <div class="pl-lg-4">
+                    <div class="form-group">
+                        <label>About Me</label>
+                        <textarea rows="4" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="A few words about you ..."[(ngModel)]="session.personal_statement" name="aboutme"></textarea>
+                    </div>
                 </div>
+                <hr class="my-4" />
+              <!-- Description -->
+                <div *ngIf="session.role==='tutor'">
+              <h6 class="heading-small text-muted mb-4">Registered Subjects</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                    <ul class="list-group col-lg-5">
+                        <li *ngFor="let course of courses" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{course.course__name}}
+                            <mdb-badge pill="true" primary="true">{{course.status}}</mdb-badge>
+                        </li>
+                    </ul>
+                    <div class="col-lg-5"><form [formGroup]="registerCourseForm" >
+                        <div class="row text-black-50">
+                            <div class="col-md-8">
+                                <mdb-select [options]="unregisteredCourses" [multiple]="true" [filterEnabled]="true" (selected)="addCourse($event)" (deselected)="removeCourse($event)" placeholder="Add new subjects" formControlName="course"></mdb-select>
+                            </div><div class="col-md-2 ">
+                            <!--    <button type="submit" class="submit-button"> &lt;!&ndash;data-toggle="modal" data-target="#appointment-form-modal"> &ndash;&gt;-->
+                            <!--        Request appointment <i class="ni ni-fat-add"></i>-->
+                            <!--    </button>-->
+<!--                            <button mdbBtn color="orange" size="sm" mdbWavesEffect class="m-0 btn-warning" (click)="registerCourse(registerCourseForm.value)">Request</button>-->
+                            <div class="btn btn-sm btn-primary" (click)="registerCourse()" >Request</div>
+                        </div>
+
+                        </div>
+                    </form></div>
+                </div>
+              </div>
+                <hr class="my-4" />
+<!--                <h6 class="heading-small text-muted mb-4">Availability</h6>-->
+<!--                <div class="pl-lg-4">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-6">-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="form-control-label" for="input-username">Username</label>-->
+<!--                                <input type="text" id="input-username" class="form-control form-control-alternative" disabled=True placeholder="Username" [(ngModel)]="session.username" name="username">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-6">-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="form-control-label" for="input-email">Email address</label>-->
+<!--                                <input type="email" id="input-email" class="form-control form-control-alternative" disabled=True placeholder="jesse@example.com" [(ngModel)]="session.email" name="email">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-6">-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="form-control-label" for="input-first-name">First name</label>-->
+<!--                                <input type="text" id="input-first-name" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="First name" [(ngModel)]="session.first_name" name="firstname">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-6">-->
+<!--                            <div class="form-group" disabled="disableInput">-->
+<!--                                <label class="form-control-label" for="input-last-name">Last name</label>-->
+<!--                                <input type="text" id="input-last-name" class="form-control form-control-alternative" [disabled]="disableInput" placeholder="Last name" [(ngModel)]="session.last_name" name="lastname">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <hr class="my-4" />-->
+                <h6 class="heading-small text-muted mb-4">Notification preference</h6>
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <!-- Material checked -->
+                                Mobile Text:
+                                <div class="switch">
+                                    <label>
+                                        Off
+                                        <input type="checkbox" checked>
+                                        <span class="lever"></span> On
+                                    </label>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <!-- Material checked -->
+                                Email:
+                                <div class="switch">
+                                    <label>
+                                        Off
+                                        <input type="checkbox" checked>
+                                        <span class="lever"></span> On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <!-- Material checked -->
+                                Push notification:
+                                <div class="switch">
+                                    <label>
+                                        Off
+                                        <input type="checkbox" checked>
+                                        <span class="lever"></span> On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4" />
+                </div>
+              <div class="row">
+                <button mdbBtn color="red" size="sm" mdbWavesEffect type="submit" class="m-0 btn-warning centre-button">Save</button>
               </div>
             </form>
           </div>

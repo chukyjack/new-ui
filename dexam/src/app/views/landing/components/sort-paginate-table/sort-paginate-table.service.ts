@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Opportunity} from "../opportunity/opportunity";
 import {Observable} from "rxjs";
 import {catchError} from "rxjs/operators";
-import {SessionData} from "./sort-paginate-table.component";
+import {SessionData, ProfileData} from "./sort-paginate-table.component";
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +16,21 @@ export class SortPaginateTableService {
     return this.http.get('/api/v1/session');
   }
 
-  acceptOpportunity (sessionData: SessionData): Observable<SessionData> {
-    return this.http.patch<SessionData>(sessionData.resource_uri, sessionData);
+  acceptOpportunity (sessionData: any): Observable<SessionData> {
+    return this.http.patch<SessionData>('/api/v1/session/accept_opportunity/', sessionData);
     // .pipe(
     //     catchError(err => {return Observable<>;};)
     // );
   }
+  // acceptOpportunity (sessionData: SessionData): Observable<SessionData> {
+  //   return this.http.patch<SessionData>(sessionData.resource_uri, sessionData);
+  //   // .pipe(
+  //   //     catchError(err => {return Observable<>;};)
+  //   // );
+  // }
 
-  setUserSessionDetails() {
+  setUserSessionDetails(): Observable<ProfileData> {
     // TODO: send the message _after_ fetching the sessions
-    return this.http.get('/api/v1/user/user_session_details');
+    return this.http.get<ProfileData>('/api/v1/user/user_session_details');
   }
 }

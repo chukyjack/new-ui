@@ -56,10 +56,25 @@ table {
 .centre {
   width: 90%;
   margin: auto;
+  display: inherit;
 }
 
+.centre-form {
+  width: 100%;
+  margin: auto;
+  display: inherit;
+}
+.centre-text {
+  text-align: center;
+  margin-top: 2%;
+}
 
-
+table {
+  //width: 100%;
+}
+//.container{
+//  margin-top: 10%;
+//}
 
 //
 ///*

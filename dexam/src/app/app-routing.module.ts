@@ -7,7 +7,7 @@ import { AuthLayoutComponent } from './shared/components/layouts/auth-layout/aut
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing/demos',
+    redirectTo: 'landing/v9',
     pathMatch: 'full'
   },
   {

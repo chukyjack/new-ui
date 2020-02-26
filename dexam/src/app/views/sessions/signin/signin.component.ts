@@ -28,7 +28,13 @@ export class SigninComponent implements OnInit {
               console.log(r);
               if (r.token) {
                 this.sessionToken.setToken(r.token);
-                this.router.navigateByUrl('/landing/v9');
+                if (r.role === 'tutor') {
+                    this.router.navigateByUrl('/landing/opportunities');
+                } else if (r.role === 'student') {
+                      this.router.navigateByUrl('/landing/schedule');
+                  } else {
+                    this.router.navigateByUrl('/landing/v9');
+                }
               }
             },
             r => {

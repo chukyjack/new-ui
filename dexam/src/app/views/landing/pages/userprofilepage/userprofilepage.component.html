@@ -12,7 +12,7 @@
         </div>
       </a>
       <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-        Creative Tim
+        Creative Chuky
         <!-- <div class="logo-image-big">
           <img src="../assets/img/logo-big.png">
         </div> -->
@@ -129,7 +129,7 @@
             <p class="card-category">Complete your profile</p>
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="profileForm">
               <div class="row">
                 <div class="col-md-5">
                   <mat-form-field class="example-full-width">
@@ -179,7 +179,7 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Postal Code" type="text">
+                    <input matInput placeholder="Postal Code" type="text" value="{{session.address}}">
                   </mat-form-field>
                 </div>
               </div>

@@ -29,6 +29,7 @@ import {DatePickerComponent} from "./components/date-picker/date-picker.componen
 import {SideNavComponent} from "./components/side-nav/side-nav.component";
 import {BillingComponent} from "./pages/billing/billing.component";
 import {ChatComponent} from "./pages/chat/chat.component";
+import {QuickGigsComponent} from "./pages/quick-gigs/quick-gigs.component";
 
 const routes: Routes = [
   {
@@ -118,6 +119,10 @@ const routes: Routes = [
    {
     path: 'opportunities',
     component: OpportunitiesComponent
+  },
+    {
+    path: 'gigs',
+    component: QuickGigsComponent
   },
    {
     path: 'schedule',
