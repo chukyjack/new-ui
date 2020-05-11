@@ -140,7 +140,7 @@
   padding: 10px 10px !important;
   color: white;
   //padding: 10px 20px;
-  background-color: #ec9e3e;
+  background-color: #e1245a;
   color: white;
   cursor: pointer;
 }
@@ -148,3 +148,14 @@
 .prop-display {
   display: inherit;
 }
+.red-button{
+  background-color: #e1245a;
+  color: #fff;
+}
+
+.red-outline-button{
+  background-color: #fff;
+  color: #e1245a;
+  border-color: #e1245a;
+}
+

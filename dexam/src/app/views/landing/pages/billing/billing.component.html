@@ -90,7 +90,7 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item active ">
-          <a class=" nav-link " [routerLink]="['/landing/v9']"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " [routerLink]="['/landing/dashboard']"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
           </a>
         </li>
         <li class="nav-item">
@@ -100,7 +100,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link " [routerLink]="['/landing/opportunities']">
-            <i class="ni ni-pin-3 text-orange"></i> OPPORTUNITIES
+            <i class="ni ni-pin-3 text-orange"></i> TUTORING OPPORTUNITIES
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/landing/gigs']">
+            <i class="ni ni-pin-3 text-orange"></i> QUICK GIGS
           </a>
         </li>
         <li class="nav-item">
@@ -310,141 +315,108 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid mt--7">
-    <!-- Table -->
-    <div class="row">
-      <div class="col">
-        <div class="card shadow">
-          <div class="card-header border-0">
-            <!--            <h5 class="mb-0">Open Opportunities</h5>-->
+<!--  <div class="container card-header">-->
+<!--    <div class="row centre-form">-->
+<!--      <app-schedule-form></app-schedule-form>-->
+<!--    </div>-->
+<!--  </div>-->
+  <div class="container button-holder">
+    <div class="invite-btn">
+      <button mdbBtn type="button" class="waves-light btn-full-width" mdbWavesEffect data-toggle="modal" data-target="#invoice-modal"><div class="text-white">Create Invoice</div></button>
+
+    </div>
+    <!-- Modal -->
+    <div mdbModal class="modal fade" id="invoice-modal"  role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+      <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header text-center">
+            <h5 class="modal-title" id="modal-title-default">Create invoice</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
-              <thead class="thead-dark-mine">
-              <tr>
-                <th scope="col">Student</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Status</th>
-                <th scope="col"></th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let opportunity of opportunities">
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <a href="#" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                    </a>
-                    <div class="media-body">
-                      <span class="mb-0 text-sm">{{opportunity.subject}}</span>
-                    </div>
-                  </div>
-                </th>
-                <td>
-                  {{opportunity.distance}}
-                </td>
-                <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> {{opportunity.type}}
-                      </span>
-                </td>
-                <!--                <td>-->
-                <!--                  <div class="d-flex align-items-center">-->
-                <!--                    <span class="mr-2">60%</span>-->
-                <!--                    <div>-->
-                <!--                      <div class="progress">-->
-                <!--                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>-->
-                <!--                      </div>-->
-                <!--                    </div>-->
-                <!--                  </div>-->
-                <!--                </td>-->
-                <td class="text-right">
-                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#Opportunity-modal">Details</button>
 
-                </td>
-                <!-- Modal -->
-                <div class="modal fade" id="Opportunity-modal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                  <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                        <h6 class="modal-title" id="modal-title-default">Type your modal title</h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                      </div>
-
-                      <div class="modal-body">
-                        {{opportunity.details}}
-                      </div>
-
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" (click)="acceptOpportunity(opportunity)">Accept</button>
-                        <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
-                      </div>
-
-                    </div>
-                  </div>
+          <div class="modal-body">
+            <form [formGroup]="billForm" (ngSubmit)="sendInvoice(billForm.value)">
+                <div class="md-form">
+                  <mdb-select [options]="optionsStudents"  (selected)="getAssociatedSession($event.value)" formControlName="students" label="Choose student"></mdb-select>
                 </div>
-              </tr>
+                  <div class="md-form">
+                  <mdb-select [options]="optionsSessions"  formControlName="session" label="Choose session"></mdb-select>
+                  </div>
+                <div class="md-form">
+                  <input mdbInput type="number" name="text" id="form1" class="form-control" formControlName="amount">
+                  <label for="form1" class="">Amount</label>
+                </div>
+                <div class="md-form">
+                  <textarea type="text" id="form7" class="md-textarea form-control" mdbInput formControlName="extra_info"></textarea>
+                  <label for="form7">Extra info for admin</label>
+                </div>
 
-              </tbody>
-            </table>
+<!--            <div class="row">-->
+<!--              <div class="col-md-6">-->
+<!--                <mdb-select [options]="optionsSelect" placeholder="Choose your option"></mdb-select>-->
+<!--              </div>-->
+<!--            </div>-->
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Cancel</button>
           </div>
-          <div class="card-footer py-4">
-            <nav aria-label="...">
-              <ul class="pagination justify-content-end mb-0">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">
-                    <i class="fas fa-angle-left"></i>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <i class="fas fa-angle-right"></i>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+          </form>
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="row align-items-center justify-content-xl-between">
-        <div class="col-xl-6">
-          <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Chuky</a>
-          </div>
-        </div>
-        <div class="col-xl-6">
-          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Chuky</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-            </li>
-          </ul>
-        </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 mx-auto">
+        <!--      <div class="md-form">-->
+        <!--        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"-->
+        <!--               mdbInput>-->
+        <!--        <label for="search-input">Search</label>-->
+        <h5 class="centre-text">Payment history</h5>
+<!--        <button mdbBtn type="button" class="waves-light btn-full-width" mdbWavesEffect data-toggle="modal" data-target="#basicExample" (click)="basicModal.show()"><div class="text-white">Request payment</div></button>-->
+
+        <!--      </div>-->
       </div>
-    </footer>
+      <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1"  >
+        <thead class="sticky-top bg-default white-text">
+        <tr>
+          <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="bills" [sortBy]="headElements[i]"
+              scope="col">{{head | titlecase}}
+          </th>
+        </tr>
+        </thead>
+        <tbody #row>
+        <tr mdbTableCol *ngFor="let bill of bills; let i = index">
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{bill.details}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{bill.bill_date}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{bill.is_paid}}</td>
+          <!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">-->
+          <!--            <span [hidden]="el.status==='confirmed'">{{el.status}}-->
+          <!--              <button mdbBtn color="indigo" size="sm" mdbWavesEffect type="button" class="m-0">Accept</button>-->
+          <!--            </span>-->
+          <!--            <span [hidden]="el.status==='pending'">{{el.status}}-->
+          <!--            </span>-->
+          <!--          </td>-->
+        </tr>
+        </tbody>
+        <tfoot class="grey lighten-5 w-100">
+        <tr>
+          <td colspan="5">
+            <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 </div>

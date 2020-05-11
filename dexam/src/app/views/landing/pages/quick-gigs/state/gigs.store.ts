@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
-// import { Tweet } from './tweet.model';
-// import { Tweet } from './tweet.model';
 import {Gig} from "./gig.model";
 
 export interface GigsState extends EntityState<Gig> {
@@ -15,7 +13,7 @@ const initialState: GigsState = {
 }
 
 @Injectable({ providedIn: 'root' })
-@StoreConfig({ name: 'gigs' })
+@StoreConfig({ name: 'gigs', resettable: true })
 export class GigsStore extends EntityStore<GigsState, Gig> {
 
     constructor() {

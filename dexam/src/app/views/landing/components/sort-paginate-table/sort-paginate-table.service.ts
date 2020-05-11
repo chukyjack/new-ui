@@ -33,4 +33,11 @@ export class SortPaginateTableService {
     // TODO: send the message _after_ fetching the sessions
     return this.http.get<ProfileData>('/api/v1/user/user_session_details');
   }
+
+  testUpload(files): Observable<ProfileData> {
+    // TODO: send the message _after_ fetching the sessions
+    return this.http.post<ProfileData>('/api/v1/user/', files, {headers: {
+            'Content-Type': 'file'
+        },});
+  }
 }

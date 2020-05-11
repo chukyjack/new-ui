@@ -222,3 +222,8 @@ li{
 .active-pink-2 .fa {
   color: #f48fb1;
 }
+img{
+  height:40px;
+  width:auto;/*maintain aspect ratio*/
+  max-width:500px;
+}

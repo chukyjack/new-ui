@@ -103,6 +103,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BillingComponent } from './pages/billing/billing.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import {
+    AutoCompleterModule,
     BadgeModule,
     ButtonsModule,
     CardsFreeModule,
@@ -110,7 +111,7 @@ import {
     DropdownModule,
     IconsModule,
     NavbarModule, SelectModule, StickyHeaderModule,
-    WavesModule, TimePickerModule, InputsModule, TableModule, ModalModule
+    WavesModule, TimePickerModule, InputsModule, TableModule, ModalModule, FileInputModule
 } from 'ng-uikit-pro-standard';
 import { MegaMenuComponent } from './components/mega-menu/mega-menu.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
@@ -127,6 +128,9 @@ import { QuickGigsComponent } from './pages/quick-gigs/quick-gigs.component';
 import { ShowMoreComponent } from './components/show-more/show-more.component';
 import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
 import { GigComponent } from './components/gig/gig.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { NavigationsComponent } from './components/navigations/navigations.component';
 
 // import {DemoMaterialModule} from './material-module';
 
@@ -175,7 +179,9 @@ import { GigComponent } from './components/gig/gig.component';
         InputsModule,
         TableModule,
         ReactiveFormsModule,
-        ModalModule
+        ModalModule,
+        AutoCompleterModule,
+        FileInputModule,
     ],
   declarations: [
     LandingV1Component,
@@ -264,6 +270,9 @@ import { GigComponent } from './components/gig/gig.component';
     ShowMoreComponent,
     InfiniteScrollComponent,
     GigComponent,
+    DashboardComponent,
+    FileUploadComponent,
+    NavigationsComponent,
 
   ],
   exports: [

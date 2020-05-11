@@ -13,33 +13,32 @@ import {SessionTokenService} from "./session-token.service";
 export class SigninComponent implements OnInit {
   public username;
   public password;
+  public currentUser;
 
-  constructor(private api: LoginService, private sessionToken: SessionTokenService, private router: Router) { }
+  constructor(private loginService: LoginService, private sessionToken: SessionTokenService, private router: Router) { }
 
   ngOnInit() {
   }
 
   tryLogin() {
-    this.api.login(
+    this.loginService.login(
         this.username,
         this.password
-    ).subscribe(
-            r => {
-              console.log(r);
-              if (r.token) {
-                this.sessionToken.setToken(r.token);
-                if (r.role === 'tutor') {
-                    this.router.navigateByUrl('/landing/opportunities');
-                } else if (r.role === 'student') {
-                      this.router.navigateByUrl('/landing/schedule');
-                  } else {
-                    this.router.navigateByUrl('/landing/v9');
-                }
-              }
-            },
-            r => {
-              alert(r.error.error);
-            });
+    );
+    this.currentUser = this.loginService.currentUserValue;
+    console.log('outside is true');
+    console.log(this.loginService.currentUserValue);
+    // if (this.currentUser.token) {
+    //     console.log('this is true');
+    //     console.log(this.loginService.currentUser);
+    //   this.sessionToken.setToken(this.currentUser.token);
+    //   if (this.currentUser.role === 'tutor') {
+    //       this.router.navigateByUrl('/landing/opportunities');
+    //   } else if (this.currentUser.role === 'student') {
+    //       this.router.navigateByUrl('/landing/schedule');
+    //   } else {
+    //       this.router.navigateByUrl('/landing/v9');
+    //   }
+    // }
   }
-
 }

@@ -30,6 +30,9 @@ import {SideNavComponent} from "./components/side-nav/side-nav.component";
 import {BillingComponent} from "./pages/billing/billing.component";
 import {ChatComponent} from "./pages/chat/chat.component";
 import {QuickGigsComponent} from "./pages/quick-gigs/quick-gigs.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+import {AuthGuard} from "../helpers/auth.guard";
+import {Role} from "../sessions/signin/role";
 
 const routes: Routes = [
   {
@@ -88,13 +91,23 @@ const routes: Routes = [
     path: 'course',
     component: CoursepageComponent
   },
+    {
+    path: 'dashboard',
+    component: DashboardComponent,
+        canActivate: [AuthGuard],
+        data: { roles: [Role.Student] }
+  },
   {
     path: 'schedulepage',
-    component: SchedulepageComponent
+    component: SchedulepageComponent,
+      canActivate: [AuthGuard],
+      // data: { roles: [Role.Admin] }
   },
   {
     path: 'opportunity',
-    component: OpportunitypageComponent
+    component: OpportunitypageComponent,
+      canActivate: [AuthGuard],
+      // data: { roles: [Role.Admin] }
   },
   // {
   //   path: 'billing',
@@ -102,31 +115,45 @@ const routes: Routes = [
   // },
   {
     path: 'students',
-    component: StudentspageComponent
+    component: StudentspageComponent,
+      canActivate: [AuthGuard],
+      data: { roles: [Role.Tutor] }
   },
   {
     path: 'tutors',
-    component: TutorpageComponent
+    component: TutorpageComponent,
+      canActivate: [AuthGuard],
+      data: { roles: [Role.Staff] }
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+      canActivate: [AuthGuard],
+      // data: { roles: [Role.Admin] }
   },
    {
     path: 'userprofile',
-    component: UserprofilepageComponent
+    component: UserprofilepageComponent,
+       canActivate: [AuthGuard],
+       // data: { roles: [Role.Admin] }
   },
    {
     path: 'opportunities',
-    component: OpportunitiesComponent
+    component: OpportunitiesComponent,
+       canActivate: [AuthGuard],
+       data: { roles: [Role.Tutor] }
   },
     {
     path: 'gigs',
-    component: QuickGigsComponent
+    component: QuickGigsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Tutor] }
   },
    {
     path: 'schedule',
-    component: ScheduleComponent
+    component: ScheduleComponent,
+       canActivate: [AuthGuard],
+       // data: { roles: [Role.Admin] }
   },
    {
     path: 'time',
@@ -147,11 +174,15 @@ const routes: Routes = [
   ,
    {
     path: 'billing',
-    component: BillingComponent
+    component: BillingComponent,
+       canActivate: [AuthGuard],
+       data: { roles: [Role.Tutor] }
   },
    {
     path: 'chat',
-    component: ChatComponent
+    component: ChatComponent,
+       canActivate: [AuthGuard],
+       data: { roles: [Role.Staff] }
   }
 ];
 

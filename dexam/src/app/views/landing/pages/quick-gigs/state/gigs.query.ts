@@ -21,5 +21,8 @@ export class GigsQuery extends QueryEntity<GigsState, Gig> {
     getPage() {
         return this.getValue().page;
     }
+    // setPage() {
+    //     return this.getValue().page;
+    // }
 
 }

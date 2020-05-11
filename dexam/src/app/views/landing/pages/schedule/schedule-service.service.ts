@@ -17,8 +17,13 @@ export class ScheduleServiceService {
     //     catchError(err => {return Observable<>;};)
     // );
   }
-  getSchedule(): Observable<Appointment[]> {
+  getPendingSchedule(): Observable<Appointment[]> {
     // TODO: send the message _after_ fetching the schedule
-    return this.http.get<Appointment[]>('/api/v1/schedule/');
+    return this.http.get<Appointment[]>('/api/v1/schedule/?status=0');
   }
+  getUnbilledSchedule(student): Observable<Appointment[]> {
+    // TODO: send the message _after_ fetching the schedule
+    return this.http.get<Appointment[]>('/api/v1/schedule/unbilled_schedules/', {params: {'student_id': student}});
+  }
+
 }

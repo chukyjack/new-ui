@@ -1,9 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {InteractionMode} from "igniteui-angular";
 import {SortPaginateTableService} from "../sort-paginate-table/sort-paginate-table.service";
-import {ScheduleListService} from "../schedule-list/schedule-list.service";
 import {ScheduleServiceService} from "../../pages/schedule/schedule-service.service";
-import {MatTableDataSource} from "@angular/material/table";
 import {StudentListService} from "../student-list/student-list.service";
 import {IMyOptions} from "ng-uikit-pro-standard";
 import {CourseServiceService} from "../../pages/coursepage/course-service.service";
@@ -23,8 +21,6 @@ export class ScheduleFormComponent implements OnInit {
   public userId;
   public role;
   public myStudents;
-  public associates;
-  public optionsSelect: Array<any>;
   public mode: InteractionMode = InteractionMode.DropDown;
   public format: string = 'hh:mm tt';
   public time: string = '12:00AM';
