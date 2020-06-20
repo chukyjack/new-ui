@@ -25,7 +25,7 @@ export class SessionData {
 }
 
 export class ProfileData {
-  user_id: number;
+  id: number;
   token: string;
   username: string;
   email: string;

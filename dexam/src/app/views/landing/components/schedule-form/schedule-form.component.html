@@ -1,61 +1,6 @@
 <!--<div class="card-header">-->
 
-<form class="form-inline" (ngSubmit)="onSubmit()">
-<!--  <div class="row">-->
-<!--    <div class="col-md-6">-->
-<!--      <mdb-select [options]="optionsSelect" placeholder="Choose your option"></mdb-select>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--  <div class="col-md-2">-->
-<!--    <div class="form-group">-->
-<!--&lt;!&ndash;      <igx-select [(ngModel)]="model.student" name="student">&ndash;&gt;-->
-<!--&lt;!&ndash;        <label igxLabel>Select Student</label>&ndash;&gt;-->
-<!--&lt;!&ndash;        <igx-select-item *ngFor="let item of myStudents" [value]="item.id">&ndash;&gt;-->
-<!--&lt;!&ndash;          {{item.first_name + ' ' + item.last_name}}&ndash;&gt;-->
-<!--&lt;!&ndash;        </igx-select-item>&ndash;&gt;-->
-<!--&lt;!&ndash;      </igx-select>&ndash;&gt;-->
-<!--&lt;!&ndash;      <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="col-md-6">&ndash;&gt;-->
-<!--          <mdb-select [options]="optionsSelect" placeholder="Choose your option"></mdb-select>-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--    </div>-->
-<!--  </div>-->
-<!--    <div class="form-col">-->
-<!--      <mdb-select [filterEnabled]="true" [options]="optionsTutors" placeholder="Select Tutor"></mdb-select>-->
-<!--    <mdb-select [options]="iconsSelect" placeholder="Choose your option" label="Example label"></mdb-select>-->
-<!--    </div>-->
 
-<!--    <div class="form-col">-->
-<!--      <mdb-select [filterEnabled]="true" [options]="optionsSubjects" placeholder="Select Subject"></mdb-select>-->
-<!--    </div>-->
-<!--    <div class="form-col">-->
-<!--        <mdb-date-picker [inline]="true" name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>-->
-<!--    </div>-->
-<!--    <div class="form-col">-->
-<!--        <mdb-date-picker [inline]="true" name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>-->
-<!--    </div>-->
-<!--  <div class="form-col">-->
-<!--&lt;!&ndash;    <div class="md-form">&ndash;&gt;-->
-<!--      <input-->
-<!--              type="time"-->
-<!--              id="input"-->
-<!--              class="form-control"-->
-<!--              value="13:00"-->
-<!--              mdbInput-->
-<!--      />-->
-<!--&lt;!&ndash;    </div>&ndash;&gt;-->
-<!--  </div>-->
-<!--  <div class="form-col">-->
-
-<!--    <button type="submit" > &lt;!&ndash;data-toggle="modal" data-target="#appointment-form-modal"> &ndash;&gt;-->
-<!--      Request appointment <i class="ni ni-fat-add"></i>-->
-<!--    </button>-->
-
-<!--  </div>-->
-<!--  </div>-->
-</form>
 <form [formGroup]="requestForm" (ngSubmit)="onSubmit(requestForm.value)">
 <div class="row text-black-50">
     <div class="col-md-3">

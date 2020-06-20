@@ -1,8 +1,9 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {SortPaginateTableService} from '../../components/sort-paginate-table/sort-paginate-table.service';
-import {IMyOptions, MdbTableDirective, MdbTablePaginationComponent} from "ng-uikit-pro-standard";
+import {IMyOptions, MdbTableDirective, MdbTablePaginationComponent, ToastService} from "ng-uikit-pro-standard";
 import {FormBuilder} from "@angular/forms";
-
+import {AlertService} from "../../../helpers/alert.service";
+// import {ToastService} from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-opportunities',
@@ -59,7 +60,8 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
     constructor(
         private _expandPaginateTableService: SortPaginateTableService,
         private cdRef: ChangeDetectorRef,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private alertService: ToastService
     ) {
         this.requestForm = this.formBuilder.group({
             requested_user: '',
@@ -191,9 +193,14 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
           console.log(res);
         },
         err => console.error(err),
-        () => console.log('succesfully accepted')
+        () => this.processSuccessful(opportunity.id)
     );
-    console.log('accepted opportunity' + JSON.stringify(opportunity));
+    }
+    processSuccessful(id) {
+        // tslint:disable-next-line:max-line-length
+        const options = {positionClass: 'md-toast-bottom-right', progressBar: true };
+        this.alertService.success('Request successfully sent.', 'Success!', options);
+        this.removeAcceptedOpportunity(id);
     }
     getSessionDetails() {
     this._expandPaginateTableService.setUserSessionDetails().subscribe(
@@ -253,5 +260,12 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
         }
         return times;
     }
-
+    removeAcceptedOpportunity(id) {
+        this.elements  = this.elements.filter(this.filterOutId(id));
+    }
+    filterOutId(id) {
+        return function(opportunity) {
+            return opportunity.id !== id;
+        };
+    }
 }

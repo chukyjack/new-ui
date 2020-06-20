@@ -15586,7 +15586,7 @@ a.btn-icon-only {
 }
 
 .main-content .navbar-top {
-  position: absolute;
+  position: relative; /* changed this*/
   left: 0;
   top: 0;
   width: 100%;
@@ -20688,3 +20688,21 @@ pre>code.highlight {
   /*width: 90% !important;*/
 }
 /*# sourceMappingURL=dashboard-free.css.map */
+
+.navbar-new {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem .5rem;
+  color: #FFFFFF;
+}
+
+.navbar-new>.container,
+.navbar-new>.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}

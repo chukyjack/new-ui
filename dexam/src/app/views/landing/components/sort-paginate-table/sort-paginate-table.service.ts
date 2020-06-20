@@ -15,6 +15,10 @@ export class SortPaginateTableService {
     // TODO: send the message _after_ fetching the sessions
     return this.http.get('/api/v1/session');
   }
+  create(data) {
+    // TODO: send the message _after_ fetching the sessions
+    return this.http.post('/api/v1/session', data);
+  }
 
   acceptOpportunity (sessionData: any): Observable<SessionData> {
     return this.http.patch<SessionData>('/api/v1/session/accept_opportunity/', sessionData);

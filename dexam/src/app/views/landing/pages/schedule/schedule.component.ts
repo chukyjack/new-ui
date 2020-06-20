@@ -1,8 +1,13 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {MdbTableDirective, MdbTablePaginationComponent} from "ng-uikit-pro-standard";
-import {ScheduleListService} from "../../components/schedule-list/schedule-list.service";
-import {IsLoadingService} from "@service-work/is-loading";
-import {SortPaginateTableService} from "../../components/sort-paginate-table/sort-paginate-table.service";
+import {IMyOptions, MdbTableDirective, MdbTablePaginationComponent, ToastService} from 'ng-uikit-pro-standard';
+import {ScheduleListService} from '../../components/schedule-list/schedule-list.service';
+import {IsLoadingService} from '@service-work/is-loading';
+import {SortPaginateTableService} from '../../components/sort-paginate-table/sort-paginate-table.service';
+import {FormBuilder} from '@angular/forms';
+import {CourseServiceService} from '../coursepage/course-service.service';
+import {StudentListService} from '../../components/student-list/student-list.service';
+import {ScheduleServiceService} from './schedule-service.service';
+import {Appointment} from './appointment';
 
 @Component({
   selector: 'app-schedule',
@@ -31,13 +36,37 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   public show = false;
   public session;
   public userId;
+  public optionsTutors;
+  public iconsSelect;
+  public selectType;
+  public optionsSubjects: Array<any>;
+  public myDatePickerOptions: IMyOptions = {
+    // Your options
+  };
+  public requestForm;
+  public role;
+  public showSpinner = false;
+  submitted = false;
+
 
   constructor(
       private _scheduleService: ScheduleListService,
       private cdRef: ChangeDetectorRef,
       private loader: IsLoadingService,
-      private _expandPaginateTableService: SortPaginateTableService
-  ) { }
+      private _expandPaginateTableService: SortPaginateTableService,
+      private formBuilder: FormBuilder,
+      private _courseService: CourseServiceService,
+      private _studentService: StudentListService,
+      private _scheduleServices: ScheduleServiceService,
+      private alertService: ToastService
+  ) {
+    this.requestForm = this.formBuilder.group({
+      requested_user: '',
+      subject: '',
+      start_time: '',
+      date: ''
+    });
+  }
 
   @HostListener('input') oninput() {
     this.mdbTablePagination.searchText = this.searchText;
@@ -52,6 +81,8 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
     console.log(this.elements);
     this.elements = this.mdbTable.getDataSource();
     this.previous = this.mdbTable.getDataSource();
+    this.optionsTutors = this.getAssociatedUsers();
+    this.optionsSubjects = [];
   }
 
   ngAfterViewInit() {
@@ -90,14 +121,14 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   }
 
   removeRow() {
-    this.mdbTable.removeRow(1);
-    this.mdbTable.getDataSource().forEach((el: any, index: any) => {
-      el.id = (index + 1).toString();
-    });
-    this.emitDataSourceChange();
-    this.mdbTable.rowRemoved().subscribe((data: any) => {
-      console.log(data);
-    });
+    // this.mdbTable.removeRow(1);
+    // this.mdbTable.getDataSource().forEach((el: any, index: any) => {
+    //   el.id = (index + 1).toString();
+    // });
+    // this.emitDataSourceChange();
+    // this.mdbTable.rowRemoved().subscribe((data: any) => {
+    //   console.log(data);
+    // });
   }
 
   emitDataSourceChange() {
@@ -147,26 +178,11 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
     );
   }
   confirmSchedule(id, data) {
-    data = {
+    const dataStatus = {
       status: 1
-    }
-    // data = {
-    //   "contact": "702503495",
-    //   "end_time": "2019-10-09T06:13:48",
-    //   "id": 1,
-    //   "location": "henderson",
-    //   "name": "Emenike Obi",
-    //   "resource_uri": "/api/v1/schedule/1/",
-    //   "start_time": "09 Oct, 06:13AM",
-    //   "status": "pending",
-    //   "student": 1,
-    //   "subject": "mathematics",
-    //   "tutor": 4,
-    //   "type": 2
-    // }
-
-    this.loader.add();
-    this._scheduleService.confirm(id, data).subscribe(
+    };
+    // this.loader.add();
+    this._scheduleService.confirm(id, dataStatus).subscribe(
         res => {
           console.log(res);
           console.log(this.elements);
@@ -174,11 +190,28 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
         },
         err => console.error(err),
         // () => this.isLoadingService.remove()
+        () => this.removeAcceptedSchedule(id)
     );
+    this.removeAcceptedSchedule(id);
+    const options = {positionClass: 'md-toast-bottom-right', progressBar: true };
+    this.alertService.success('Appointment accepted.', 'Success!', options);
   }
   filterPendingSchedule(schedule) {
     return schedule.status === 'pending';
   }
+  removeAcceptedSchedule(id) {
+    this.pendingSchedules = this.pendingSchedules.filter(this.filterOutId(id));
+    console.log(this.pendingSchedules.length + 'New pendings length ####### #####');
+  }
+  // filterOutId(schedule, id){
+  //   return schedule.id !== id;
+  // }
+  filterOutId(id) {
+    return function(schedule) {
+      return schedule.id !== id;
+    };
+  }
+
 
   filterConfirmedSchedule(schedule) {
     return schedule.status === 'confirmed';
@@ -190,14 +223,13 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
           console.log('    ');
           console.log(JSON.stringify(res));
           this.session = res;
-          this.userId = res['user_id'];
-          console.log('this is th session');
-          console.log('this is th session');
+          this.userId = res.id;
+          this.role = res.role;
           console.log(this.session);
 
         },
         err => console.error(err),
-        () => console.log('successful')
+        () => this.setSelectType()
     );
   }
   formatDateTime(date: string) {
@@ -206,6 +238,71 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
     console.log(newdate);
     return newdate;
   }
+  getAssociatedCourses(user) {
+    console.log(this.optionsTutors);
+    console.log('opption was seletecd' + ' ' + user);
+    console.log('opption was seletecd' + ' ' + user);
+    user = {'other_user': user};
+    this._courseService.listUserCourses(user).subscribe(
+        res => {
+          this.optionsSubjects = this.formatData(res);
+        },
+        err => console.log(err),
+        () => console.log('success!')
+    );
+  }
+  getAssociatedUsers() {
+    this._studentService.getAssociatedUsers().subscribe(
+        res => {
+          this.optionsTutors = res;
+          console.log(res);
+        },
+        err => console.error(err),
+        () => console.log('successfully got associated users')
+    );
+  }
+  formatData(data: Array<any>) {
+    const finalData = [];
+    for (let i = 0; i < data.length; i++) {
+      finalData.push({'label' : data[i].subject__name, 'value' : data[i].subject} );
+    }
+    return finalData;
+  }
+  setSelectType() {
+    console.log('user role is ' + this.role);
+    if (this.role === 'tutor') {
+      this.selectType = 'Student';
+    } else if (this.role === 'student') {
+      this.selectType = 'Tutor';
+    } else {
+      this.selectType = 'User';
+    }
+  }
+  createAppointment(appointment) {
+    this._scheduleServices.postSchedule(appointment).subscribe(
+        res => {
+          console.log(res);
+          this.showSpinner = true;
+        },
+        err => console.error(err),
+        () => {console.log('successfully accepted');
+          this.showSpinner = false;
+          this.pendingSchedules.push(appointment);
+          console.log('successfully accepted this opportunity');
+        }
+    );
+  }
+  onSubmit(data) {
+    const appointment = new Appointment(data);
+    this.submitted = true;
+
+    console.log(data + ' ' + 'new appointment data');
+    this.createAppointment(appointment);
+    console.log('suceesfulyy ######### submitted')
+    const options = {positionClass: 'md-toast-bottom-right', progressBar: true };
+    this.alertService.success('Request successfully sent.', 'Success!', options);
+  }
+
 }
 
 

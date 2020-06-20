@@ -131,7 +131,9 @@ import { GigComponent } from './components/gig/gig.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { NavigationsComponent } from './components/navigations/navigations.component';
-
+import { ToastModule } from 'ng-uikit-pro-standard';
+import { LowerNavComponent } from './components/lower-nav/lower-nav.component';
+import { TopNavComponent } from './components/top-nav/top-nav.component';
 // import {DemoMaterialModule} from './material-module';
 
 @NgModule({
@@ -182,6 +184,7 @@ import { NavigationsComponent } from './components/navigations/navigations.compo
         ModalModule,
         AutoCompleterModule,
         FileInputModule,
+        ToastModule.forRoot(),
     ],
   declarations: [
     LandingV1Component,
@@ -273,6 +276,8 @@ import { NavigationsComponent } from './components/navigations/navigations.compo
     DashboardComponent,
     FileUploadComponent,
     NavigationsComponent,
+    LowerNavComponent,
+    TopNavComponent,
 
   ],
   exports: [

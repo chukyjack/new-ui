@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {InteractionMode} from "igniteui-angular";
+// import {InteractionMode} from "igniteui-angular";
 import {SortPaginateTableService} from "../sort-paginate-table/sort-paginate-table.service";
 import {ScheduleServiceService} from "../../pages/schedule/schedule-service.service";
 import {StudentListService} from "../student-list/student-list.service";
@@ -21,9 +21,9 @@ export class ScheduleFormComponent implements OnInit {
   public userId;
   public role;
   public myStudents;
-  public mode: InteractionMode = InteractionMode.DropDown;
-  public format: string = 'hh:mm tt';
-  public time: string = '12:00AM';
+  // public mode: InteractionMode = InteractionMode.DropDown;
+  // public format: string = 'hh:mm tt';
+  // public time: string = '12:00AM';
   submitted = false;
   public showSpinner = false;
   public optionsTutors;

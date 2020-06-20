@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {SortPaginateTableService} from "../../components/sort-paginate-table/sort-paginate-table.service";
-import {IMyOptions, MdbTableDirective, MdbTablePaginationComponent} from "ng-uikit-pro-standard";
+import {IMyOptions, MdbTableDirective, MdbTablePaginationComponent, ToastService} from "ng-uikit-pro-standard";
 import {FormBuilder} from "@angular/forms";
 import {Appointment} from "../../components/schedule-form/schedule-form.component";
 import {StudentListService} from "../../components/student-list/student-list.service";
@@ -41,7 +41,8 @@ export class BillingComponent implements OnInit {
       private formBuilder: FormBuilder,
       private _studentService: StudentListService,
       private _scheduleService: ScheduleServiceService,
-      private _billingService: BillingService
+      private _billingService: BillingService,
+      private alertService: ToastService
   ) {
       this.billForm = this.formBuilder.group({
           students: '',
@@ -130,14 +131,16 @@ export class BillingComponent implements OnInit {
       );
     }
     sendInvoice(data) {
-
+        const options = {positionClass: 'md-toast-bottom-right', progressBar: true };
         this._billingService.postBill(data).subscribe(
             res => {
                 // this.bills = Object.values(res)[1];
                 console.log(res);
             },
-            err => console.error(err),
-            () => console.log('successfully created invoice')
+            err => {console.error(err);
+                this.alertService.error('Invoice already sent', 'Error!', options); },
+            () => {console.log('successfully created invoice');
+            this.alertService.success('Request successfully sent.', 'Success!', options); }
         );
     }
   getAssociatedUsers() {

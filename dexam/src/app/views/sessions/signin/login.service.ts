@@ -59,7 +59,11 @@ export class LoginService {
     this.http.get('/api/v1/user/logout/').subscribe(user => {
       // login successful if there's a jwt token in the response
       console.log('logged out');
-    });
+    },
+        err => console.error(err),
+        () => console.log('logged out')
+    );
+    this.router.navigate(['/landing/v9']);
   }
 }
 

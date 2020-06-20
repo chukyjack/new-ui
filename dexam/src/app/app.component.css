@@ -115,3 +115,28 @@
 /*    left:       0;*/
 /*    position:   fixed;*/
 /*}*/
+
+
+.main-content .navbar-top {
+    position: relative !important;
+}
+.navbar-new {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem .5rem;
+}
+
+.navbar-new>.container,
+.navbar-new>.container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.toast-bottom-left{
+    left: 100px;
+    bottom: 0;
+}

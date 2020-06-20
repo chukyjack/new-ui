@@ -30,3 +30,19 @@
 .space-out{
   margin-left: 2%;
 }
+@media (min-width: 768px) {
+  table.table-sm th, table.table-sm td {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+.table-modify{
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+  padding-top: 0 !important;
+  margin: auto !important;
+  width: 80%;
+}
+.table-head{
+  background-color: #ffffff !important;
+}
